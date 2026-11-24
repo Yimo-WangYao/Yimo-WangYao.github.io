@@ -464,13 +464,27 @@
       font-size: 0.95rem;
     }
 
-    .course-list {
+    .course-groups {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 5px 18px;
-      margin: 12px 0 0;
-      padding-left: 19px;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .course-group {
+      padding-left: 12px;
+      border-left: 3px solid var(--teal-soft);
+    }
+
+    .course-group strong {
+      display: block;
+      color: var(--teal);
+      font-size: 0.9rem;
+    }
+
+    .course-group p {
+      margin: 2px 0 0;
       color: #405554;
+      font-size: 0.91rem;
     }
 
     .score-box {
@@ -825,10 +839,6 @@
         grid-template-columns: 1fr;
       }
 
-      .course-list {
-        grid-template-columns: 1fr;
-      }
-
       .award-item,
       .update-item {
         grid-template-columns: 1fr;
@@ -1061,17 +1071,20 @@
                 <div class="fact"><span>2025-26</span><strong>3.48 / 4.0</strong></div>
               </div>
               <p><strong>Relevant coursework:</strong></p>
-              <ul class="course-list">
-                <li>Mathematical Analysis</li>
-                <li>Advanced Algebra</li>
-                <li>Probability Theory</li>
-                <li>Mathematical Statistics</li>
-                <li>Regression Analysis</li>
-                <li>Time Series Analysis</li>
-                <li>Stochastic Processes</li>
-                <li>R Programming</li>
-                <li>Ordinary Differential Equations</li>
-              </ul>
+              <div class="course-groups">
+                <div class="course-group">
+                  <strong>Mathematical foundations</strong>
+                  <p>Mathematical Analysis, Advanced Algebra, Probability Theory, Ordinary Differential Equations</p>
+                </div>
+                <div class="course-group">
+                  <strong>Core statistics</strong>
+                  <p>Mathematical Statistics, Regression Analysis, Multivariate Statistics, Time Series Analysis, Stochastic Processes, R Programming</p>
+                </div>
+                <div class="course-group">
+                  <strong>Advanced and graduate</strong>
+                  <p>Bayesian Statistics, Frontiers in Statistics Seminar (Graduate)</p>
+                </div>
+              </div>
             </div>
             <div class="zh" lang="zh-CN">
               <p>统计学理学学士 · 2024级</p>
@@ -1081,17 +1094,20 @@
                 <div class="fact"><span>2025-26 学年</span><strong>3.48 / 4.0</strong></div>
               </div>
               <p><strong>主要课程：</strong></p>
-              <ul class="course-list">
-                <li>数学分析</li>
-                <li>高等代数</li>
-                <li>概率论</li>
-                <li>数理统计</li>
-                <li>回归分析</li>
-                <li>时间序列分析</li>
-                <li>随机过程</li>
-                <li>R 语言与数据分析</li>
-                <li>常微分方程</li>
-              </ul>
+              <div class="course-groups">
+                <div class="course-group">
+                  <strong>数学基础</strong>
+                  <p>数学分析、高等代数、概率论、常微分方程</p>
+                </div>
+                <div class="course-group">
+                  <strong>统计核心</strong>
+                  <p>数理统计、回归分析、多元统计、时间序列分析、随机过程、R 语言与数据分析</p>
+                </div>
+                <div class="course-group">
+                  <strong>进阶与研究生课程</strong>
+                  <p>贝叶斯统计、统计前沿选讲（研究生课程）</p>
+                </div>
+              </div>
             </div>
           </div>
 
