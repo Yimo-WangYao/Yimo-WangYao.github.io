@@ -1,48 +1,65 @@
-# Yimo WangYao's Personal Website
+# Yimo Wang-Yao's Personal Website
 
-## Introduction
-This is the bilingual personal website of Yimo (Suri) WangYao, a student at the Southern University of Science and Technology, Class of 2028, majoring in Statistics. This site is built with simple HTML and CSS, containing both English and Chinese versions of her academic and extracurricular background.
+Bilingual academic homepage for Yimo (Suri) Wang-Yao, a statistics undergraduate at the Southern University of Science and Technology.
 
-## Structure
-- `index.html`: Main homepage file, includes both English and Chinese versions of all sections.
-- `IMG_3460.jpeg`: Profile photo displayed on the homepage.
+## Files
 
-## Features
-- Clean and modern layout
-- Responsive design for mobile users
-- Dual-language (English first, followed by Chinese)
+- `index.html`: Main page, including all English and Chinese content.
+- `suri.jpeg`: Profile photo used in the homepage.
+- `IMG_3460.jpeg`, `IMG_3470.jpeg`: Additional image assets retained in the repository.
 
-## Instructions
-To view the website:
-1. Clone or download this repository
-2. Open `index.html` in any web browser
+## Preview
 
-## Customization
-Feel free to update:
-- The content in `index.html` to reflect changes in academic experience, interests, or achievements
-- Style in the `<style>` section of the same file
+Open `index.html` directly in a browser, or run a local static server:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000/`.
+
+## Updating Content
+
+The page is intentionally kept as a single HTML file. When adding an award, project, activity, or news item, update both the English and Chinese versions in the same section.
+
+Recommended details for a new achievement:
+
+- Date
+- Award or result name
+- Issuing organization
+- Link, if available
+- One-sentence bilingual description
 
 ---
 
 # 王姚以沫的个人主页
 
-## 简介
-这是南方科技大学2028届统计学专业学生王姚以沫（Suri WangYao）的双语个人主页，采用纯HTML和CSS构建，包含她的学术背景与课外经历的中英文介绍。
+南方科技大学统计学本科生王姚以沫（Suri Wang-Yao）的双语学术主页。
 
-## 结构
-- `index.html`：主页面文件，包含中英文双语内容
-- `IMG_3460.jpeg`：主页中显示的头像
+## 文件
 
-## 特点
-- 清新现代的版式设计
-- 移动端响应式设计
-- 英文优先，中文在后
+- `index.html`：主页面，包含全部中英文内容。
+- `suri.jpeg`：主页头像。
+- `IMG_3460.jpeg`、`IMG_3470.jpeg`：仓库中保留的其他图片素材。
 
-## 使用说明
-1. 克隆或下载本仓库
-2. 用浏览器打开 `index.html` 即可浏览主页
+## 本地预览
 
-## 自定义建议
-欢迎根据需要修改：
-- `index.html` 中的内容，如课程、研究兴趣、经历等
-- 页面样式，可在 `<style>` 中更改CSS样式
+可以直接用浏览器打开 `index.html`，也可以在仓库目录运行：
+
+```sh
+python3 -m http.server 8000
+```
+
+然后访问 `http://localhost:8000/`。
+
+## 内容更新
+
+页面刻意保持为单个 HTML 文件。新增奖项、项目、活动或近期动态时，需要在同一栏目中同时更新中英文内容。
+
+新增成果时建议提供：
+
+- 日期
+- 奖项或成果名称
+- 颁发机构
+- 相关链接（如有）
+- 一句中英文简介
