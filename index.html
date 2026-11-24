@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yimo Wang-Yao | Statistics Student at SUSTech</title>
-  <meta name="description" content="Academic homepage of Yimo Wang-Yao, an undergraduate statistics student at Southern University of Science and Technology. Research interests, projects, awards, and activities.">
+  <title>Yimo Wang-Yao | Statistics Research and Sports Analytics</title>
+  <meta name="description" content="Academic homepage of Yimo Wang-Yao, a statistics undergraduate at Southern University of Science and Technology, applying for MS programs in statistics and data science for Fall 2028.">
   <meta name="author" content="Yimo Wang-Yao">
   <link rel="canonical" href="https://yimo-wangyao.github.io/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Yimo Wang-Yao">
-  <meta property="og:description" content="Statistics undergraduate at Southern University of Science and Technology, Class of 2028.">
+  <meta property="og:description" content="Statistics undergraduate working on sports analytics, social data, player-influence modeling, and uncertainty quantification.">
   <meta property="og:url" content="https://yimo-wangyao.github.io/">
   <meta property="og:image" content="https://yimo-wangyao.github.io/suri.jpeg">
   <meta name="twitter:card" content="summary">
@@ -21,14 +21,16 @@
       --ink: #183637;
       --muted: #5d6e6d;
       --teal: #003f43;
+      --teal-mid: #0b5457;
       --teal-soft: #d9ece9;
       --teal-bright: #2bb7b3;
       --accent: #b5683f;
-      --paper: #f3f0e9;
+      --gold: #c3924f;
+      --paper: #f2efe8;
       --surface: #fffdf9;
       --surface-alt: #f7faf7;
       --line: #d8dfdb;
-      --shadow: 0 16px 45px rgba(24, 54, 55, 0.09);
+      --shadow: 0 14px 40px rgba(24, 54, 55, 0.09);
     }
 
     * {
@@ -37,7 +39,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 92px;
+      scroll-padding-top: 82px;
     }
 
     body {
@@ -50,8 +52,8 @@
     }
 
     a {
-      color: var(--teal);
-      text-decoration-color: rgba(0, 63, 67, 0.35);
+      color: var(--teal-mid);
+      text-decoration-color: rgba(11, 84, 87, 0.35);
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
     }
@@ -72,9 +74,9 @@
       left: 8px;
       z-index: 2000;
       padding: 8px 12px;
+      border-radius: 6px;
       background: var(--surface);
       color: var(--teal);
-      border-radius: 6px;
       transform: translateY(-150%);
       transition: transform 0.2s ease;
     }
@@ -89,8 +91,8 @@
       z-index: 1000;
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 10px max(18px, calc((100vw - 1120px) / 2));
+      gap: 14px;
+      padding: 9px max(18px, calc((100vw - 1180px) / 2));
       background: var(--teal);
       box-shadow: 0 6px 20px rgba(0, 35, 38, 0.18);
     }
@@ -105,7 +107,7 @@
       border-radius: 6px;
       color: #fff;
       font-family: Georgia, "Songti SC", serif;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 700;
       text-decoration: none;
     }
@@ -120,22 +122,16 @@
       display: flex;
       flex: 1;
       justify-content: center;
-      gap: 2px;
+      gap: 1px;
       min-width: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    nav::-webkit-scrollbar {
-      display: none;
     }
 
     nav a {
       flex: 0 0 auto;
-      padding: 7px 10px;
+      padding: 7px 9px;
       border-radius: 5px;
       color: rgba(255, 255, 255, 0.86);
-      font-size: 0.9rem;
+      font-size: 0.86rem;
       font-weight: 600;
       line-height: 1.3;
       text-decoration: none;
@@ -150,53 +146,62 @@
       text-decoration: none;
     }
 
-    #langToggle {
+    .header-controls {
+      display: flex;
       flex: 0 0 auto;
-      min-width: 56px;
-      padding: 8px 12px;
+      gap: 7px;
+    }
+
+    #menuToggle,
+    #langToggle {
+      min-width: 54px;
+      padding: 8px 11px;
       border: 1px solid rgba(255, 255, 255, 0.42);
       border-radius: 6px;
       background: transparent;
       color: #fff;
       font: inherit;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
       transition: background-color 0.2s ease;
     }
 
+    #menuToggle {
+      display: none;
+    }
+
+    #menuToggle:hover,
     #langToggle:hover {
       background: var(--teal-bright);
     }
 
-    .container {
-      width: min(980px, calc(100% - 36px));
-      margin: 94px auto 36px;
-      padding: 38px 48px 54px;
-      border: 1px solid rgba(24, 54, 55, 0.08);
-      border-radius: 8px;
+    main {
+      margin-top: 72px;
       background: var(--surface);
-      box-shadow: var(--shadow);
     }
 
     section {
-      padding-top: 38px;
-    }
-
-    .container > section:first-child {
-      padding-top: 0;
-    }
-
-    .container > section + section {
-      margin-top: 38px;
       border-top: 1px solid var(--line);
+    }
+
+    #home {
+      border-top: 0;
+    }
+
+    .section-inner {
+      width: min(1000px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 54px 0;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 38px;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 42px;
       align-items: center;
+      padding-top: 44px;
+      padding-bottom: 48px;
     }
 
     .photo {
@@ -204,7 +209,7 @@
       aspect-ratio: 4 / 5;
       border-radius: 8px;
       background: var(--teal-soft);
-      box-shadow: 0 8px 22px rgba(24, 54, 55, 0.16);
+      box-shadow: 0 8px 24px rgba(24, 54, 55, 0.16);
     }
 
     .photo img {
@@ -219,139 +224,183 @@
     h3 {
       color: var(--teal);
       font-family: Georgia, "Songti SC", "STSong", serif;
-      line-height: 1.24;
+      line-height: 1.22;
     }
 
     h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 0 0 10px;
+      font-size: 2.85rem;
       font-weight: 700;
     }
 
     h2 {
       margin: 0 0 22px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--teal-bright);
-      font-size: clamp(1.45rem, 3vw, 1.8rem);
+      font-size: 1.75rem;
     }
 
     h3 {
-      margin: 0 0 8px;
-      font-size: 1.12rem;
+      margin: 0 0 9px;
+      font-size: 1.18rem;
     }
 
     p {
       margin: 0 0 12px;
     }
 
-    ul {
-      margin-top: 0;
-      padding-left: 20px;
-    }
-
-    li + li {
-      margin-top: 8px;
-    }
-
-    .role {
-      margin-bottom: 8px;
-      font-size: 1.08rem;
-      font-weight: 600;
-    }
-
-    .focus {
-      max-width: 650px;
-      color: var(--muted);
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      margin-top: 18px;
-      font-size: 0.93rem;
-      font-weight: 600;
-    }
-
-    .news-list {
-      display: grid;
-      gap: 0;
-      margin: 0;
-      padding: 0 0 0 22px;
-      border-left: 2px solid var(--teal-soft);
-      list-style: none;
-    }
-
-    .news-list li {
-      position: relative;
-      margin: 0;
-      padding: 0 0 22px;
-    }
-
-    .news-list li:last-child {
-      padding-bottom: 0;
-    }
-
-    .news-list li::before {
-      position: absolute;
-      top: 0.52em;
-      left: -29px;
-      width: 10px;
-      height: 10px;
-      border: 2px solid var(--surface);
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent);
-      content: "";
-    }
-
-    .news-date {
-      display: block;
-      margin-bottom: 2px;
+    .kicker {
+      margin: 0 0 6px;
       color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .news-item strong {
-      display: block;
-      color: var(--ink);
-    }
-
-    .education-item {
-      list-style: none;
-    }
-
-    .education-item h3 {
-      font-size: 1.28rem;
-    }
-
-    .fact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin: 18px 0;
-    }
-
-    .fact {
-      padding-left: 14px;
-      border-left: 3px solid var(--teal-soft);
-    }
-
-    .fact span {
-      display: block;
-      color: var(--muted);
       font-size: 0.78rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
     }
 
-    .fact strong {
-      font-size: 0.95rem;
+    .role {
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 1.08rem;
+      font-weight: 650;
     }
 
-    .coursework {
+    .focus {
+      max-width: 680px;
       color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .hero-actions,
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 14px;
+      border: 1px solid var(--teal);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--teal);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .button-link.primary {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .button-link.primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .research-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .research-copy {
+      min-width: 0;
+    }
+
+    .research-question {
+      margin-bottom: 17px;
+      padding-left: 15px;
+      border-left: 3px solid var(--accent);
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .research-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .research-fact {
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-alt);
+    }
+
+    .research-fact strong {
+      display: block;
+      color: var(--teal);
+      font-size: 1.15rem;
+    }
+
+    .research-fact span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .key-result {
+      margin: 19px 0;
+      padding: 15px 17px;
+      border-left: 4px solid var(--teal-bright);
+      background: #eef7f4;
+    }
+
+    .key-result strong {
+      color: var(--teal);
+    }
+
+    .research-figure {
+      margin: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .research-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag-list li {
+      margin: 0;
+      padding: 5px 10px;
+      border: 1px solid #cbdcd7;
+      border-radius: 999px;
+      background: #f1f7f4;
+      color: var(--teal-mid);
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
     .cards {
@@ -368,12 +417,6 @@
       border-top: 3px solid var(--accent);
       border-radius: 8px;
       background: var(--surface-alt);
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
-    }
-
-    .card:hover {
-      box-shadow: 0 10px 24px rgba(24, 54, 55, 0.1);
-      transform: translateY(-2px);
     }
 
     .card p {
@@ -382,10 +425,108 @@
     }
 
     .card .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-top: auto;
-      padding-top: 6px;
+      padding-top: 7px;
       font-size: 0.9rem;
       font-weight: 700;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr);
+      gap: 28px;
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .fact {
+      padding-left: 13px;
+      border-left: 3px solid var(--teal-soft);
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
+      font-size: 0.95rem;
+    }
+
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 5px 18px;
+      margin: 12px 0 0;
+      padding-left: 19px;
+      color: #405554;
+    }
+
+    .score-box {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-alt);
+    }
+
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.88rem;
+    }
+
+    .score-row:last-child {
+      border-bottom: 0;
+    }
+
+    .score-row strong {
+      color: var(--teal);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skill-group {
+      padding-top: 13px;
+      border-top: 3px solid var(--teal-soft);
+    }
+
+    .skill-group h3 {
+      font-size: 1rem;
+    }
+
+    .skill-group p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .award-group + .award-group {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .award-group h3 {
+      margin-bottom: 12px;
+      font-size: 1.02rem;
     }
 
     .award-list {
@@ -396,23 +537,12 @@
       list-style: none;
     }
 
-    .award-group + .award-group {
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-    }
-
-    .award-group h3 {
-      margin-bottom: 14px;
-      font-size: 1.05rem;
-    }
-
     .award-item {
       display: grid;
-      grid-template-columns: 115px minmax(0, 1fr);
-      gap: 18px;
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: 17px;
       margin: 0;
-      padding: 15px 0;
+      padding: 13px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -427,7 +557,7 @@
 
     .award-date {
       color: var(--accent);
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 700;
     }
 
@@ -436,22 +566,125 @@
       color: var(--ink);
     }
 
-    .activity-group + .activity-group {
-      margin-top: 28px;
-      padding-top: 24px;
+    .award-item span:not(.award-date) {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .activity-group {
+      margin-top: 14px;
+      padding-top: 18px;
       border-top: 1px solid var(--line);
     }
 
-    .activity-group h3 {
-      margin-bottom: 12px;
+    .activity-group:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
     }
 
-    .activity-group li strong {
+    .activity-group h3 {
+      margin-bottom: 10px;
+      font-size: 1.06rem;
+    }
+
+    .activity-group ul {
+      margin-top: 0;
+      padding-left: 20px;
+    }
+
+    .activity-group li + li {
+      margin-top: 6px;
+    }
+
+    details.activity-group {
+      padding-bottom: 2px;
+    }
+
+    details.activity-group > summary {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--teal);
+      font-family: Georgia, "Songti SC", "STSong", serif;
+      font-size: 1.06rem;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    details.activity-group > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.activity-group > summary::before {
+      content: "+";
+      display: grid;
+      width: 22px;
+      height: 22px;
+      place-items: center;
+      border: 1px solid #b8cdc7;
+      border-radius: 50%;
+      color: var(--teal-mid);
+      font-family: "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    details.activity-group[open] > summary::before {
+      content: "-";
+    }
+
+    details.activity-group > summary + ul {
+      margin-top: 12px;
+    }
+
+    .updates-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .update-item {
+      display: grid;
+      grid-template-columns: 115px minmax(0, 1fr);
+      gap: 16px;
+      margin: 0;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .update-item:first-child {
+      padding-top: 0;
+    }
+
+    .update-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .update-date {
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .update-item strong {
+      display: block;
       color: var(--ink);
     }
 
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+      gap: 28px;
+    }
+
     .contact-list {
-      padding-left: 0;
+      margin: 0;
+      padding: 0;
       list-style: none;
     }
 
@@ -461,31 +694,29 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .contact-list li:last-child {
-      border-bottom: 0;
-    }
-
     .contact-label {
       display: inline-block;
-      min-width: 150px;
+      min-width: 145px;
       color: var(--muted);
       font-size: 0.9rem;
       font-weight: 700;
     }
 
-    .contact-note {
-      margin-top: 18px;
-      padding: 14px 16px;
-      border-left: 3px solid var(--teal-bright);
-      background: var(--teal-soft);
-      font-style: italic;
+    .objective-box {
+      padding: 18px;
+      border-left: 4px solid var(--accent);
+      background: var(--surface-alt);
+    }
+
+    .objective-box strong {
+      color: var(--teal);
     }
 
     .site-footer {
-      width: min(980px, calc(100% - 36px));
-      margin: 0 auto 36px;
+      width: min(1000px, calc(100% - 40px));
+      margin: 28px auto 38px;
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       text-align: center;
     }
 
@@ -498,7 +729,7 @@
       display: none !important;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 920px) {
       .site-header {
         gap: 8px;
         padding: 9px 12px;
@@ -509,57 +740,97 @@
       }
 
       nav {
-        justify-content: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        gap: 3px;
+        padding: 10px 12px 14px;
+        background: var(--teal);
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 12px 20px rgba(0, 35, 38, 0.2);
       }
 
-      .container {
-        width: min(100% - 24px, 760px);
-        margin-top: 82px;
-        padding: 30px 28px 42px;
+      .site-header.menu-open nav {
+        display: flex;
       }
 
-      .hero {
-        gap: 28px;
+      nav a {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.92rem;
+      }
+
+      .header-controls {
+        margin-left: auto;
+      }
+
+      #menuToggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      main {
+        margin-top: 58px;
+      }
+
+      html {
+        scroll-padding-top: 68px;
       }
     }
 
-    @media (max-width: 680px) {
-      nav a {
-        padding: 7px 8px;
-        font-size: 0.82rem;
-      }
-
-      #langToggle {
-        min-width: 52px;
-        padding: 7px 9px;
-      }
-
-      .container {
-        width: calc(100% - 20px);
-        margin-top: 78px;
-        padding: 26px 20px 38px;
+    @media (max-width: 720px) {
+      .section-inner {
+        width: calc(100% - 32px);
+        padding: 40px 0;
       }
 
       .hero {
         grid-template-columns: 1fr;
+        gap: 23px;
+        padding-top: 30px;
         text-align: center;
       }
 
       .photo {
-        width: min(190px, 62vw);
+        width: min(180px, 56vw);
         justify-self: center;
       }
 
-      .hero-links {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero-actions {
         justify-content: center;
       }
 
-      .fact-grid,
-      .cards {
+      .research-feature,
+      .education-grid,
+      .cards,
+      .skills-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .award-item {
+      .research-facts,
+      .fact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .course-list {
+        grid-template-columns: 1fr;
+      }
+
+      .award-item,
+      .update-item {
         grid-template-columns: 1fr;
         gap: 3px;
       }
@@ -591,450 +862,539 @@
     <span class="zh" lang="zh-CN">跳到正文</span>
   </a>
 
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <a class="wordmark" href="#home" aria-label="Yimo Wang-Yao homepage">YW</a>
-    <nav aria-label="Primary">
-      <a class="nav-link active" href="#home"><span class="en">Home</span><span class="zh" lang="zh-CN">首页</span></a>
-      <a class="nav-link" href="#news"><span class="en">News</span><span class="zh" lang="zh-CN">近期动态</span></a>
-      <a class="nav-link" href="#education"><span class="en">Education</span><span class="zh" lang="zh-CN">教育经历</span></a>
-      <a class="nav-link" href="#research"><span class="en">Research</span><span class="zh" lang="zh-CN">研究兴趣</span></a>
-      <a class="nav-link" href="#projects"><span class="en">Projects</span><span class="zh" lang="zh-CN">项目经历</span></a>
-      <a class="nav-link" href="#awards"><span class="en">Awards</span><span class="zh" lang="zh-CN">奖项荣誉</span></a>
-      <a class="nav-link" href="#activities"><span class="en">Activities</span><span class="zh" lang="zh-CN">课外活动</span></a>
-      <a class="nav-link" href="#contact"><span class="en">Contact</span><span class="zh" lang="zh-CN">联系方式</span></a>
+    <nav id="siteNav" aria-label="Primary">
+      <a href="#research"><span class="en">Research</span><span class="zh" lang="zh-CN">研究</span></a>
+      <a href="#projects"><span class="en">Projects</span><span class="zh" lang="zh-CN">项目</span></a>
+      <a href="#education"><span class="en">Education</span><span class="zh" lang="zh-CN">教育</span></a>
+      <a href="#skills"><span class="en">Skills</span><span class="zh" lang="zh-CN">技能</span></a>
+      <a href="#awards"><span class="en">Awards</span><span class="zh" lang="zh-CN">荣誉</span></a>
+      <a href="#activities"><span class="en">Activities</span><span class="zh" lang="zh-CN">活动</span></a>
+      <a href="#updates"><span class="en">Updates</span><span class="zh" lang="zh-CN">动态</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="zh" lang="zh-CN">联系</span></a>
     </nav>
-    <button id="langToggle" type="button" aria-label="Switch to Chinese">中文</button>
+    <div class="header-controls">
+      <button id="menuToggle" type="button" aria-controls="siteNav" aria-expanded="false">
+        <span class="en">Menu</span>
+        <span class="zh" lang="zh-CN">菜单</span>
+      </button>
+      <button id="langToggle" type="button" aria-label="Switch to Chinese">中文</button>
+    </div>
   </header>
 
-  <main id="main" class="container">
+  <main id="main">
     <section id="home">
-      <div class="hero">
+      <div class="section-inner hero">
         <div class="photo">
           <img src="suri.jpeg" alt="Portrait of Yimo Wang-Yao" width="790" height="1090" fetchpriority="high">
         </div>
 
-        <div class="intro">
+        <div>
           <div class="en">
+            <p class="kicker">Statistics · Research · Sports Analytics</p>
             <h1>Yimo Wang-Yao</h1>
-            <p class="role">Undergraduate Student of Statistics<br>Southern University of Science and Technology, Class of 2028</p>
-            <p class="focus">Working across social statistics and sports analytics, with a focus on CBA player-influence modeling, reproducible data pipelines, and uncertainty quantification.</p>
-            <div class="hero-links">
-              <a href="mailto:suri2006@proton.me">Email</a>
-              <a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="#news">Latest updates</a>
+            <p class="role">Statistics undergraduate at SUSTech<br>Prospective MS applicant in Statistics / Data Science, Fall 2028</p>
+            <p class="focus">Building reproducible models for sports and social data, with a focus on player influence, weak-signal inference, and uncertainty calibration.</p>
+            <div class="hero-actions">
+              <a class="button-link primary" href="cv.html">CV</a>
+              <a class="button-link" href="research/cba.html">Research Summary</a>
+              <a class="button-link" href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="button-link" href="mailto:suri2006@proton.me">Email</a>
             </div>
           </div>
 
           <div class="zh" lang="zh-CN">
+            <p class="kicker">统计 · 研究 · 体育数据分析</p>
             <h1>王姚以沫</h1>
-            <p class="role">统计学本科生<br>南方科技大学，2024级</p>
-            <p class="focus">关注社会统计与体育数据分析，研究 CBA 球员影响力建模、可复现数据流程及不确定性量化。</p>
-            <div class="hero-links">
-              <a href="mailto:suri2006@proton.me">邮箱</a>
-              <a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="#news">近期动态</a>
+            <p class="role">南方科技大学统计学本科生<br>拟申请 2028 年秋季统计 / 数据科学硕士项目</p>
+            <p class="focus">面向体育与社会数据构建可复现模型，关注球员影响力、弱信号推断与不确定性校准。</p>
+            <div class="hero-actions">
+              <a class="button-link primary" href="cv.html">简历</a>
+              <a class="button-link" href="research/cba.html">研究摘要</a>
+              <a class="button-link" href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="button-link" href="mailto:suri2006@proton.me">邮箱</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="news">
-      <h2>
-        <span class="en">Recent Updates</span>
-        <span class="zh" lang="zh-CN">近期动态</span>
-      </h2>
-
-      <div class="en">
-        <ul class="news-list">
-          <li class="news-item">
-            <time class="news-date" datetime="2026-10">Oct 2026</time>
-            <strong>CUMCM Guangdong Provincial Second Prize</strong>
-            Received a provincial second prize at the China Undergraduate Mathematical Contest in Modeling.
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2026-11">Nov 2026</time>
-            <strong>APEC volunteer service</strong>
-            Served as a volunteer at the registration center of the 2026 APEC Economic Leaders' Meeting.
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2026-06">Jun 2026</time>
-            <strong>Guangdong light volleyball championship</strong>
-            Won first prize and placed seventh at the Guangdong Province University Student Light Volleyball Championship.
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2025/2026">2025–26</time>
-            <strong>University honors</strong>
-            Recognized with the Third Prize of the Outstanding Student Scholarship and the Outstanding Student Award.
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2026-09">Sep 2026</time>
-            <strong>New student leadership roles</strong>
-            Began serving as President of the Kaiyuan Xiangsheng Club and Captain of the SUSTech Women's Volleyball Team.
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2025-12">Dec 2025</time>
-            <strong>Shenzhen university volleyball competition</strong>
-            Won second place at the 2025 Shenzhen University Student Volleyball Competition.
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2025-06">Jun 2025</time>
-            <strong>Huizhou summer teaching program</strong>
-            Served as team leader for the SUSTech summer teaching program in Huizhou from June to August.
-          </li>
-        </ul>
-      </div>
-
-      <div class="zh" lang="zh-CN">
-        <ul class="news-list">
-          <li class="news-item">
-            <time class="news-date" datetime="2026-10">2026年10月</time>
-            <strong>全国大学生数学建模竞赛</strong>
-            获全国大学生数学建模竞赛广东省二等奖。
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2026-11">2026年11月</time>
-            <strong>APEC 志愿服务</strong>
-            担任 2026 年亚太经合组织（APEC）第三十三次领导人非正式会议注册中心志愿者。
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2026-06">2026年6月</time>
-            <strong>广东省大学生气排球锦标赛</strong>
-            获广东省大学生气排球锦标赛一等奖（第七名）。
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2025/2026">2025–26 学年</time>
-            <strong>校级荣誉</strong>
-            获优秀学生奖学金三等奖、优秀学生荣誉。
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2026-09">2026年9月</time>
-            <strong>担任新的学生工作职务</strong>
-            开始担任开元堂相声社社长、南方科技大学女排校队队长。
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2025-12">2025年12月</time>
-            <strong>深圳市大学生排球比赛</strong>
-            获 2025 年深圳市大学生排球比赛第二名。
-          </li>
-          <li class="news-item">
-            <time class="news-date" datetime="2025-06">2025年6月</time>
-            <strong>惠州暑期支教项目</strong>
-            2025年6月至8月，担任南方科技大学惠州暑期支教项目队长。
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>
-        <span class="en">Education</span>
-        <span class="zh" lang="zh-CN">教育经历</span>
-      </h2>
-
-      <ul>
-        <li class="education-item">
-          <h3>
-            <span class="en">Southern University of Science and Technology</span>
-            <span class="zh" lang="zh-CN">南方科技大学</span>
-          </h3>
-
-          <div class="en">
-            <p>B.S. in Statistics, Class of 2028</p>
-            <div class="fact-grid">
-              <div class="fact"><span>Overall GPA</span><strong>3.36 / 4.0</strong></div>
-              <div class="fact"><span>2024–25 GPA</span><strong>3.24 / 4.0</strong></div>
-              <div class="fact"><span>2025–26 GPA</span><strong>3.48 / 4.0</strong></div>
-            </div>
-            <p class="coursework"><strong>Core coursework:</strong> Calculus, Linear Algebra, Probability Theory, Mathematical Statistics</p>
-          </div>
-
-          <div class="zh" lang="zh-CN">
-            <p>统计学理学学士，2024级</p>
-            <div class="fact-grid">
-              <div class="fact"><span>总 GPA</span><strong>3.36 / 4.0</strong></div>
-              <div class="fact"><span>2024–25 学年 GPA</span><strong>3.24 / 4.0</strong></div>
-              <div class="fact"><span>2025–26 学年 GPA</span><strong>3.48 / 4.0</strong></div>
-            </div>
-            <p class="coursework"><strong>主要课程：</strong>高等数学、线性代数、概率论、数理统计</p>
-          </div>
-        </li>
-      </ul>
-    </section>
-
     <section id="research">
-      <h2>
-        <span class="en">Research Interests</span>
-        <span class="zh" lang="zh-CN">研究兴趣</span>
-      </h2>
+      <div class="section-inner">
+        <div class="en">
+          <p class="kicker">Featured Research</p>
+          <h2>CBA Player Influence Model</h2>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p class="kicker">核心研究</p>
+          <h2>CBA 球员影响力模型</h2>
+        </div>
 
-      <div class="en">
-        <ul>
-          <li><strong>Statistics:</strong> Social statistics, sports data analysis, data science, and applied inference</li>
-          <li><strong>Artificial Intelligence:</strong> Model evaluation, fairness, robustness, and ethics</li>
-        </ul>
-      </div>
-      <div class="zh" lang="zh-CN">
-        <ul>
-          <li><strong>统计学：</strong>社会统计、体育数据分析、数据科学与应用统计推断</li>
-          <li><strong>人工智能：</strong>模型评估、公平性、鲁棒性与伦理</li>
-        </ul>
+        <div class="research-feature">
+          <div class="research-copy">
+            <div class="en">
+              <p class="research-question"><strong>Research question:</strong> How reliably can individual CBA player influence be estimated when player exposure is sparse, lineups are highly collinear, and possession outcomes are noisy?</p>
+              <p>I built a reproducible possession-level pipeline that integrates official CBA records with K8 play-by-play data, reconstructs five-player lineups, and estimates adjusted player effects.</p>
+              <div class="research-facts">
+                <div class="research-fact"><strong>453</strong><span>Regular-season and playoff games</span></div>
+                <div class="research-fact"><strong>287</strong><span>Players meeting the exposure floor</span></div>
+                <div class="research-fact"><strong>200</strong><span>Game-level bootstrap resamples</span></div>
+              </div>
+              <p><strong>Methods:</strong> Ridge RAPM, hierarchical empirical-Bayes RAPM, exact-lineup interaction checks, variance-component Laplace approximation, controlled simulation, and interval calibration.</p>
+              <div class="key-result">
+                <strong>Key finding:</strong> CBA rankings remain unstable under weak lineup signal. Mean bootstrap rank correlation was 0.786 for offense and 0.762 for defense, and nominal 95% intervals required calibration factors up to 2.999.
+              </div>
+              <p><strong>Limitations:</strong> The estimates are adjusted on-court associations, not causal effects. The current model does not fully identify hidden lineup interactions or unobserved player roles.</p>
+              <div class="inline-actions">
+                <a class="button-link primary" href="research/cba.html">Read Research Summary</a>
+                <a class="button-link" href="https://github.com/Yimo-WangYao/cba-influence-model" target="_blank" rel="noopener noreferrer">Private GitHub</a>
+                <a class="button-link" href="mailto:suri2006@proton.me?subject=CBA%20Influence%20Model">Contact</a>
+              </div>
+            </div>
+
+            <div class="zh" lang="zh-CN">
+              <p class="research-question"><strong>研究问题：</strong>当球员样本有限、阵容高度共线且回合结果噪声较大时，CBA 球员个人影响力能够被多可靠地估计？</p>
+              <p>我构建了以回合为单位的可复现分析流程，整合官方 CBA 记录与 K8 回合事件，重建五人阵容并估计调整后的球员效应。</p>
+              <div class="research-facts">
+                <div class="research-fact"><strong>453</strong><span>常规赛与季后赛比赛</span></div>
+                <div class="research-fact"><strong>287</strong><span>达到样本门槛的球员</span></div>
+                <div class="research-fact"><strong>200</strong><span>比赛级 Bootstrap 重采样</span></div>
+              </div>
+              <p><strong>方法：</strong>Ridge RAPM、经验贝叶斯层级 RAPM、精确阵容交互检验、方差组件 Laplace 近似、控制模拟与区间校准。</p>
+              <div class="key-result">
+                <strong>核心发现：</strong>弱阵容信号下，CBA 球员排名仍不稳定。Bootstrap 排名平均相关系数为进攻 0.786、防守 0.762；名义 95% 区间的校准系数最高达到 2.999。
+              </div>
+              <p><strong>局限：</strong>当前估计是控制场上因素后的关联，而非因果效应；模型尚未完全识别隐藏的阵容交互与不可观测球员角色。</p>
+              <div class="inline-actions">
+                <a class="button-link primary" href="research/cba.html">阅读英文研究摘要</a>
+                <a class="button-link" href="https://github.com/Yimo-WangYao/cba-influence-model" target="_blank" rel="noopener noreferrer">私有 GitHub</a>
+                <a class="button-link" href="mailto:suri2006@proton.me?subject=CBA%20Influence%20Model">联系我</a>
+              </div>
+            </div>
+
+            <ul class="tag-list en" aria-label="Research interests">
+              <li>Social Statistics</li>
+              <li>Sports Analytics</li>
+              <li>Player Influence</li>
+              <li>Weak-Signal Inference</li>
+              <li>Uncertainty Quantification</li>
+              <li>Reproducible Pipelines</li>
+            </ul>
+            <ul class="tag-list zh" lang="zh-CN" aria-label="研究兴趣">
+              <li>社会统计</li>
+              <li>体育数据分析</li>
+              <li>球员影响力</li>
+              <li>弱信号推断</li>
+              <li>不确定性量化</li>
+              <li>可复现数据流程</li>
+            </ul>
+          </div>
+
+          <figure class="research-figure">
+            <img src="research/fig-stability.svg" alt="Bar chart showing CBA player ranking stability under bootstrap resampling">
+            <figcaption>
+              <span class="en">Ranking stability across 200 game-level bootstrap resamples. Broad ordering is preserved, but individual ranks remain uncertain.</span>
+              <span class="zh" lang="zh-CN">200 次比赛级 Bootstrap 下的排名稳定性。整体排序可保留，但个体排名仍存在较大不确定性。</span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>
-        <span class="en">Projects &amp; Experience</span>
-        <span class="zh" lang="zh-CN">科研项目与经历</span>
-      </h2>
+      <div class="section-inner">
+        <div class="en">
+          <p class="kicker">Selected Work</p>
+          <h2>Projects and Writing</h2>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p class="kicker">代表经历</p>
+          <h2>项目与写作</h2>
+        </div>
 
-      <div class="cards">
-        <article class="card">
-          <h3>
-            <span class="en">CBA Player Influence Model</span>
-            <span class="zh" lang="zh-CN">CBA 球员影响力模型</span>
-          </h3>
-          <div class="en">
-            <p>Built a reproducible player-influence pipeline from official CBA and K8 play-by-play data, covering 420 regular-season and 33 playoff games in the 2025–26 season.</p>
-            <p>Reconstructed five-player lineups and possessions, then compared ridge RAPM, hierarchical empirical-Bayes RAPM, lineup-interaction models, and simulation-based uncertainty calibration.</p>
-            <p><strong>Role:</strong> Data pipeline, statistical modeling, and validation</p>
-            <p><strong>Coverage:</strong> 2025–26 season · Ongoing</p>
-          </div>
-          <div class="zh" lang="zh-CN">
-            <p>基于官方 CBA 数据与 K8 回合事件构建可复现的球员影响力分析流程，覆盖 2025–26 赛季 420 场常规赛和 33 场季后赛。</p>
-            <p>完成五人阵容与回合重建，并比较 Ridge RAPM、经验贝叶斯层级 RAPM、阵容交互模型及基于模拟的不确定性校准。</p>
-            <p><strong>职责：</strong>数据流程、统计建模与结果验证</p>
-            <p><strong>数据范围：</strong>2025–26 赛季 · 持续进行</p>
-          </div>
-          <div class="links">
-            <a href="https://github.com/Yimo-WangYao/cba-influence-model" target="_blank" rel="noopener noreferrer">
-              <span class="en">GitHub (private)</span>
-              <span class="zh" lang="zh-CN">GitHub（私有）</span>
-            </a>
-            <a href="mailto:suri2006@proton.me?subject=CBA%20Influence%20Model%20Access">
-              <span class="en">Request access</span>
-              <span class="zh" lang="zh-CN">申请访问</span>
-            </a>
-          </div>
-        </article>
+        <div class="cards">
+          <article class="card">
+            <h3>
+              <span class="en">Basketball Content Creation on Hupu</span>
+              <span class="zh" lang="zh-CN">虎扑篮球内容创作</span>
+            </h3>
+            <div class="en">
+              <p>Write CBA-related analysis and commentary for Hupu, connecting statistical and tactical questions with public-facing basketball discussion.</p>
+              <p><strong>Role:</strong> Content planning and writing</p>
+              <p><strong>Focus:</strong> CBA analysis, player evaluation, and data communication</p>
+              <p><strong>Status:</strong> Ongoing</p>
+            </div>
+            <div class="zh" lang="zh-CN">
+              <p>在虎扑创作 CBA 相关分析与评论，将统计、战术问题与公开篮球讨论结合。</p>
+              <p><strong>职责：</strong>内容策划与撰写</p>
+              <p><strong>方向：</strong>CBA 分析、球员评估与数据传播</p>
+              <p><strong>状态：</strong>持续进行</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <article class="card">
-          <h3>
-            <span class="en">Basketball Content Creation on Hupu</span>
-            <span class="zh" lang="zh-CN">虎扑篮球内容创作</span>
-          </h3>
-          <div class="en">
-            <p>Produce CBA-related analysis and commentary for Hupu, connecting basketball discussion with data-informed perspectives.</p>
-            <p><strong>Role:</strong> Content planning and writing</p>
-            <p><strong>Duration:</strong> Ongoing</p>
+    <section id="education">
+      <div class="section-inner">
+        <div class="en">
+          <p class="kicker">Academic Background</p>
+          <h2>Education</h2>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p class="kicker">学术背景</p>
+          <h2>教育经历</h2>
+        </div>
+
+        <div class="education-grid">
+          <div>
+            <h3>
+              <span class="en">Southern University of Science and Technology</span>
+              <span class="zh" lang="zh-CN">南方科技大学</span>
+            </h3>
+            <div class="en">
+              <p>B.S. in Statistics · Class of 2028</p>
+              <div class="fact-grid">
+                <div class="fact"><span>Overall GPA</span><strong>3.36 / 4.0</strong></div>
+                <div class="fact"><span>2024-25</span><strong>3.24 / 4.0</strong></div>
+                <div class="fact"><span>2025-26</span><strong>3.48 / 4.0</strong></div>
+              </div>
+              <p><strong>Relevant coursework:</strong></p>
+              <ul class="course-list">
+                <li>Mathematical Analysis</li>
+                <li>Advanced Algebra</li>
+                <li>Probability Theory</li>
+                <li>Mathematical Statistics</li>
+                <li>Regression Analysis</li>
+                <li>Time Series Analysis</li>
+                <li>Stochastic Processes</li>
+                <li>R Programming</li>
+                <li>Ordinary Differential Equations</li>
+              </ul>
+            </div>
+            <div class="zh" lang="zh-CN">
+              <p>统计学理学学士 · 2024级</p>
+              <div class="fact-grid">
+                <div class="fact"><span>总 GPA</span><strong>3.36 / 4.0</strong></div>
+                <div class="fact"><span>2024-25 学年</span><strong>3.24 / 4.0</strong></div>
+                <div class="fact"><span>2025-26 学年</span><strong>3.48 / 4.0</strong></div>
+              </div>
+              <p><strong>主要课程：</strong></p>
+              <ul class="course-list">
+                <li>数学分析</li>
+                <li>高等代数</li>
+                <li>概率论</li>
+                <li>数理统计</li>
+                <li>回归分析</li>
+                <li>时间序列分析</li>
+                <li>随机过程</li>
+                <li>R 语言与数据分析</li>
+                <li>常微分方程</li>
+              </ul>
+            </div>
           </div>
-          <div class="zh" lang="zh-CN">
-            <p>在虎扑创作 CBA 相关分析与评论，将篮球讨论与数据视角结合。</p>
-            <p><strong>职责：</strong>内容策划与撰写</p>
-            <p><strong>时间：</strong>持续进行</p>
+
+          <aside class="score-box">
+            <div class="en">
+              <h3>Test Scores</h3>
+              <div class="score-row"><span>English proficiency</span><strong>To be updated</strong></div>
+              <div class="score-row"><span>GRE</span><strong>To be updated</strong></div>
+              <p class="focus">This section is reserved for verified scores.</p>
+            </div>
+            <div class="zh" lang="zh-CN">
+              <h3>标化成绩</h3>
+              <div class="score-row"><span>语言成绩</span><strong>待更新</strong></div>
+              <div class="score-row"><span>GRE</span><strong>待更新</strong></div>
+              <p class="focus">本区域用于后续填写已确认成绩。</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-inner">
+        <div class="en">
+          <p class="kicker">Technical Toolkit</p>
+          <h2>Skills</h2>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p class="kicker">技术能力</p>
+          <h2>技能</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Programming &amp; Data</h3>
+            <p>Python, R, pandas, NumPy, SciPy, scikit-learn, Git, LaTeX</p>
           </div>
-          <div class="links">
-            <a href="mailto:suri2006@proton.me?subject=Hupu%20Basketball%20Content%20Creation">
-              <span class="en">Request details</span>
-              <span class="zh" lang="zh-CN">邮件咨询</span>
-            </a>
+          <div class="skill-group">
+            <h3>Statistical Modeling</h3>
+            <p>Regression analysis, hierarchical models, RAPM, bootstrap, simulation, uncertainty quantification</p>
           </div>
-        </article>
+          <div class="skill-group">
+            <h3>Communication</h3>
+            <p>Data visualization, English and Chinese technical writing, public-facing sports analysis</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="awards">
-      <h2>
-        <span class="en">Awards &amp; Honors</span>
-        <span class="zh" lang="zh-CN">奖项与荣誉</span>
-      </h2>
+      <div class="section-inner">
+        <div class="en">
+          <p class="kicker">Recognition</p>
+          <h2>Awards and Honors</h2>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p class="kicker">获奖情况</p>
+          <h2>奖项与荣誉</h2>
+        </div>
 
-      <div class="award-group">
-        <h3>
-          <span class="en">Scholarships &amp; University Honors</span>
-          <span class="zh" lang="zh-CN">奖学金与校级荣誉</span>
-        </h3>
-        <ul class="award-list">
-          <li class="award-item">
-            <span class="award-date">2024–25</span>
-            <div>
-              <strong class="en">Third Prize, Outstanding Student Scholarship</strong>
-              <strong class="zh" lang="zh-CN">优秀学生奖学金 三等奖</strong>
-              <span class="en">Southern University of Science and Technology</span>
-              <span class="zh" lang="zh-CN">南方科技大学</span>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-date">2024–25</span>
-            <div>
-              <strong class="en">Outstanding Student Leader Award</strong>
-              <strong class="zh" lang="zh-CN">优秀学生干部</strong>
-              <span class="en">Southern University of Science and Technology</span>
-              <span class="zh" lang="zh-CN">南方科技大学</span>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-date">2025–26</span>
-            <div>
-              <strong class="en">Third Prize, Outstanding Student Scholarship</strong>
-              <strong class="zh" lang="zh-CN">优秀学生奖学金 三等奖</strong>
-              <span class="en">Southern University of Science and Technology</span>
-              <span class="zh" lang="zh-CN">南方科技大学</span>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-date">2025–26</span>
-            <div>
-              <strong class="en">Outstanding Student Award</strong>
-              <strong class="zh" lang="zh-CN">优秀学生</strong>
-              <span class="en">Southern University of Science and Technology</span>
-              <span class="zh" lang="zh-CN">南方科技大学</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+        <div class="award-group">
+          <h3><span class="en">Scholarships and University Honors</span><span class="zh" lang="zh-CN">奖学金与校级荣誉</span></h3>
+          <ul class="award-list">
+            <li class="award-item">
+              <span class="award-date">2024-25</span>
+              <div>
+                <strong class="en">Third Prize, Outstanding Student Scholarship</strong>
+                <strong class="zh" lang="zh-CN">优秀学生奖学金 三等奖</strong>
+                <span class="en">Southern University of Science and Technology</span>
+                <span class="zh" lang="zh-CN">南方科技大学</span>
+              </div>
+            </li>
+            <li class="award-item">
+              <span class="award-date">2024-25</span>
+              <div>
+                <strong class="en">Outstanding Student Leader Award</strong>
+                <strong class="zh" lang="zh-CN">优秀学生干部</strong>
+                <span class="en">Southern University of Science and Technology</span>
+                <span class="zh" lang="zh-CN">南方科技大学</span>
+              </div>
+            </li>
+            <li class="award-item">
+              <span class="award-date">2025-26</span>
+              <div>
+                <strong class="en">Third Prize, Outstanding Student Scholarship</strong>
+                <strong class="zh" lang="zh-CN">优秀学生奖学金 三等奖</strong>
+                <span class="en">Southern University of Science and Technology</span>
+                <span class="zh" lang="zh-CN">南方科技大学</span>
+              </div>
+            </li>
+            <li class="award-item">
+              <span class="award-date">2025-26</span>
+              <div>
+                <strong class="en">Outstanding Student Award</strong>
+                <strong class="zh" lang="zh-CN">优秀学生</strong>
+                <span class="en">Southern University of Science and Technology</span>
+                <span class="zh" lang="zh-CN">南方科技大学</span>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-      <div class="award-group">
-        <h3>
-          <span class="en">Academic Competitions</span>
-          <span class="zh" lang="zh-CN">学科竞赛</span>
-        </h3>
-        <ul class="award-list">
-          <li class="award-item">
-            <span class="award-date">May 2025</span>
-            <div>
-              <strong class="en">Second Prize, Guangdong Province College Student Writing Competition</strong>
-              <strong class="zh" lang="zh-CN">广东省大学生写作大赛 二等奖</strong>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-date">Feb 2026</span>
-            <div>
-              <strong class="en">Mathematical Contest in Modeling (MCM/ICM), Honorable Mention</strong>
-              <strong class="zh" lang="zh-CN">数学建模竞赛（MCM/ICM）S奖</strong>
-              <span>COMAP</span>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-date">Oct 2026</span>
-            <div>
-              <strong class="en">China Undergraduate Mathematical Contest in Modeling (CUMCM), Guangdong Provincial Second Prize</strong>
-              <strong class="zh" lang="zh-CN">全国大学生数学建模竞赛 广东省二等奖</strong>
-            </div>
-          </li>
-        </ul>
-      </div>
+        <div class="award-group">
+          <h3><span class="en">Academic Competitions</span><span class="zh" lang="zh-CN">学科竞赛</span></h3>
+          <ul class="award-list">
+            <li class="award-item">
+              <span class="award-date">May 2025</span>
+              <div>
+                <strong class="en">Second Prize, Guangdong Province College Student Writing Competition</strong>
+                <strong class="zh" lang="zh-CN">广东省大学生写作大赛 二等奖</strong>
+              </div>
+            </li>
+            <li class="award-item">
+              <span class="award-date">Feb 2026</span>
+              <div>
+                <strong class="en">Mathematical Contest in Modeling (MCM/ICM), Honorable Mention</strong>
+                <strong class="zh" lang="zh-CN">数学建模竞赛（MCM/ICM）S奖</strong>
+                <span>COMAP</span>
+              </div>
+            </li>
+            <li class="award-item">
+              <span class="award-date">Oct 2026</span>
+              <div>
+                <strong class="en">China Undergraduate Mathematical Contest in Modeling (CUMCM), Guangdong Provincial Second Prize</strong>
+                <strong class="zh" lang="zh-CN">全国大学生数学建模竞赛 广东省二等奖</strong>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-      <div class="award-group">
-        <h3>
-          <span class="en">Sports Competitions</span>
-          <span class="zh" lang="zh-CN">体育竞赛</span>
-        </h3>
-        <ul class="award-list">
-          <li class="award-item">
-            <span class="award-date">Dec 2025</span>
-            <div>
-              <strong class="en">Shenzhen University Student Volleyball Competition, Second Place</strong>
-              <strong class="zh" lang="zh-CN">深圳市大学生排球比赛 第二名</strong>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-date">Jun 2026</span>
-            <div>
-              <strong class="en">Guangdong Province University Student Light Volleyball Championship, First Prize (Seventh Place)</strong>
-              <strong class="zh" lang="zh-CN">广东省大学生气排球锦标赛 一等奖（第七名）</strong>
-            </div>
-          </li>
-        </ul>
+        <div class="award-group">
+          <h3><span class="en">Sports Competitions</span><span class="zh" lang="zh-CN">体育竞赛</span></h3>
+          <ul class="award-list">
+            <li class="award-item">
+              <span class="award-date">Dec 2025</span>
+              <div>
+                <strong class="en">Shenzhen University Student Volleyball Competition, Second Place</strong>
+                <strong class="zh" lang="zh-CN">深圳市大学生排球比赛 第二名</strong>
+              </div>
+            </li>
+            <li class="award-item">
+              <span class="award-date">Jun 2026</span>
+              <div>
+                <strong class="en">Guangdong Province University Student Light Volleyball Championship, First Prize (Seventh Place)</strong>
+                <strong class="zh" lang="zh-CN">广东省大学生气排球锦标赛 一等奖（第七名）</strong>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section id="activities">
-      <h2>
-        <span class="en">Extracurricular Activities</span>
-        <span class="zh" lang="zh-CN">课外活动</span>
-      </h2>
+      <div class="section-inner">
+        <div class="en">
+          <p class="kicker">Selected Service and Leadership</p>
+          <h2>Activities</h2>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p class="kicker">代表服务与领导经历</p>
+          <h2>活动</h2>
+        </div>
 
-      <div class="activity-group">
-        <h3>
-          <span class="en">Community Work</span>
-          <span class="zh" lang="zh-CN">社会实践</span>
-        </h3>
-        <ul class="en">
-          <li><strong>SUSTech Huizhou Summer Teaching Program</strong> — Team Leader, Jun 2025 – Aug 2025</li>
-          <li><strong>15th National Games of China</strong> — Volunteer, Jun 2025 – Dec 2025</li>
-          <li><strong>12th National Games for Persons with Disabilities &amp; 9th National Special Olympic Games of China</strong> — Volunteer, Jun 2025 – Dec 2025</li>
-          <li><strong>2026 APEC Economic Leaders' Meeting</strong> — Registration Center Volunteer, Nov 2026</li>
-        </ul>
-        <ul class="zh" lang="zh-CN">
-          <li><strong>南方科技大学惠州暑期支教项目</strong> — 队长，2025年6月至8月</li>
-          <li><strong>第十五届全国运动会</strong> — 志愿者，2025年6月至12月</li>
-          <li><strong>第十二届全国残疾人运动会暨第九届全国特殊奥林匹克运动会</strong> — 志愿者，2025年6月至12月</li>
-          <li><strong>2026年亚太经合组织（APEC）第三十三次领导人非正式会议</strong> — 注册中心志愿者，2026年11月</li>
-        </ul>
+        <div class="activity-group">
+          <h3><span class="en">Community Work</span><span class="zh" lang="zh-CN">社会实践</span></h3>
+          <ul class="en">
+            <li><strong>SUSTech Huizhou Summer Teaching Program</strong> - Team Leader, Jun-Aug 2025</li>
+            <li><strong>15th National Games of China</strong> - Volunteer, Jun-Dec 2025</li>
+            <li><strong>12th National Games for Persons with Disabilities and 9th National Special Olympic Games</strong> - Volunteer, Jun-Dec 2025</li>
+            <li><strong>2026 APEC Economic Leaders' Meeting</strong> - Registration Center Volunteer, Nov 2026</li>
+          </ul>
+          <ul class="zh" lang="zh-CN">
+            <li><strong>南方科技大学惠州暑期支教项目</strong> - 队长，2025年6月至8月</li>
+            <li><strong>第十五届全国运动会</strong> - 志愿者，2025年6月至12月</li>
+            <li><strong>第十二届全国残疾人运动会暨第九届全国特殊奥林匹克运动会</strong> - 志愿者，2025年6月至12月</li>
+            <li><strong>2026年亚太经合组织（APEC）第三十三次领导人非正式会议</strong> - 注册中心志愿者，2026年11月</li>
+          </ul>
+        </div>
+
+        <details class="activity-group">
+          <summary><span class="en">Sports</span><span class="zh" lang="zh-CN">体育活动</span></summary>
+          <ul class="en">
+            <li><strong>SUSTech Women's Volleyball Team</strong> - Player since Sep 2024; Captain since Sep 2026</li>
+            <li><strong>Volleyball Team of Shude College</strong> - Player since Sep 2024; Captain, Sep 2025-Jun 2026</li>
+            <li><strong>Table Tennis Team of Shude College</strong> - Player since Sep 2024</li>
+            <li><strong>SUSTech Table Tennis Club</strong> - President, Sep 2025-Jun 2026</li>
+          </ul>
+          <ul class="zh" lang="zh-CN">
+            <li><strong>南方科技大学女排校队</strong> - 队员，2024年9月至今；队长，2026年9月至今</li>
+            <li><strong>树德书院排球队</strong> - 队员，2024年9月至今；队长，2025年9月至2026年6月</li>
+            <li><strong>树德书院乒乓球队</strong> - 队员，2024年9月至今</li>
+            <li><strong>南方科技大学乒乓球社</strong> - 社长，2025年9月至2026年6月</li>
+          </ul>
+        </details>
+
+        <details class="activity-group">
+          <summary><span class="en">Student Work</span><span class="zh" lang="zh-CN">学生工作</span></summary>
+          <ul class="en">
+            <li><strong>Kaiyuan Xiangsheng Club</strong> - Vice President, 2024-2026; President since Sep 2026</li>
+            <li><strong>Shude Shaosheng Recitation Club</strong> - President since Sep 2026</li>
+            <li><strong>Calligraphy and Painting Club</strong> - Vice President, Sep 2025-Jun 2026</li>
+            <li><strong>Student Union of Shude College</strong> - Member, Sep 2024-Jun 2025</li>
+          </ul>
+          <ul class="zh" lang="zh-CN">
+            <li><strong>开元堂相声社</strong> - 副社长，2024年至2026年；社长，2026年9月至今</li>
+            <li><strong>树德韶声朗诵社</strong> - 社长，2026年9月至今</li>
+            <li><strong>致仁书画社</strong> - 副社长，2025年9月至2026年6月</li>
+            <li><strong>树德书院学生会</strong> - 干事，2024年9月至2025年6月</li>
+          </ul>
+        </details>
       </div>
+    </section>
 
-      <div class="activity-group">
-        <h3>
-          <span class="en">Sports</span>
-          <span class="zh" lang="zh-CN">体育活动</span>
-        </h3>
-        <ul class="en">
-          <li><strong>SUSTech Women's Volleyball Team</strong> — Player, Sep 2024 – Present; Captain, Sep 2026 – Present</li>
-          <li><strong>Volleyball Team of Shude College</strong> — Player, Sep 2024 – Present; Captain, Sep 2025 – Jun 2026</li>
-          <li><strong>Table Tennis Team of Shude College</strong> — Player, Sep 2024 – Present</li>
-          <li><strong>SUSTech Table Tennis Club</strong> — President, Sep 2025 – Jun 2026</li>
-        </ul>
-        <ul class="zh" lang="zh-CN">
-          <li><strong>南方科技大学女排校队</strong> — 队员，2024年9月至今；队长，2026年9月至今</li>
-          <li><strong>树德书院排球队</strong> — 队员，2024年9月至今；队长，2025年9月至2026年6月</li>
-          <li><strong>树德书院乒乓球队</strong> — 队员，2024年9月至今</li>
-          <li><strong>南方科技大学乒乓球社</strong> — 社长，2025年9月至2026年6月</li>
-        </ul>
-      </div>
+    <section id="updates">
+      <div class="section-inner">
+        <div class="en">
+          <p class="kicker">Latest</p>
+          <h2>Recent Updates</h2>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p class="kicker">最新信息</p>
+          <h2>近期动态</h2>
+        </div>
 
-      <div class="activity-group">
-        <h3>
-          <span class="en">Student Work</span>
-          <span class="zh" lang="zh-CN">学生工作</span>
-        </h3>
-        <ul class="en">
-          <li><strong>Kaiyuan Xiangsheng Club</strong> — Vice President, Sep 2024 – 2026; President, Sep 2026 – Present</li>
-          <li><strong>Shude Shaosheng Recitation Club</strong> — President, Sep 2026 – Present</li>
-          <li><strong>Calligraphy and Painting Club</strong> — Vice President, Sep 2025 – Jun 2026</li>
-          <li><strong>Student Union of Shude College</strong> — Member, Sep 2024 – Jun 2025</li>
-        </ul>
-        <ul class="zh" lang="zh-CN">
-          <li><strong>开元堂相声社</strong> — 副社长，2024年9月至2026年；社长，2026年9月至今</li>
-          <li><strong>树德韶声朗诵社</strong> — 社长，2026年9月至今</li>
-          <li><strong>致仁书画社</strong> — 副社长，2025年9月至2026年6月</li>
-          <li><strong>树德书院学生会</strong> — 干事，2024年9月至2025年6月</li>
+        <ul class="updates-list">
+          <li class="update-item">
+            <span class="update-date">Nov 2026</span>
+            <div>
+              <strong class="en">APEC volunteer service</strong>
+              <strong class="zh" lang="zh-CN">APEC 志愿服务</strong>
+              <span class="en">Registration Center Volunteer at the 2026 APEC Economic Leaders' Meeting.</span>
+              <span class="zh" lang="zh-CN">担任 2026 年亚太经合组织（APEC）第三十三次领导人非正式会议注册中心志愿者。</span>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">Oct 2026</span>
+            <div>
+              <strong class="en">CUMCM Guangdong Provincial Second Prize</strong>
+              <strong class="zh" lang="zh-CN">全国大学生数学建模竞赛广东省二等奖</strong>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">Sep 2026</span>
+            <div>
+              <strong class="en">New student leadership roles</strong>
+              <strong class="zh" lang="zh-CN">担任新的学生工作职务</strong>
+              <span class="en">President of the Kaiyuan Xiangsheng Club and Captain of the SUSTech Women's Volleyball Team.</span>
+              <span class="zh" lang="zh-CN">担任开元堂相声社社长、南方科技大学女排校队队长。</span>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">Jun 2026</span>
+            <div>
+              <strong class="en">Guangdong light volleyball championship</strong>
+              <strong class="zh" lang="zh-CN">广东省大学生气排球锦标赛</strong>
+              <span class="en">First Prize (Seventh Place).</span>
+              <span class="zh" lang="zh-CN">获一等奖（第七名）。</span>
+            </div>
+          </li>
+          <li class="update-item">
+            <span class="update-date">2025-26</span>
+            <div>
+              <strong class="en">University honors</strong>
+              <strong class="zh" lang="zh-CN">校级荣誉</strong>
+              <span class="en">Outstanding Student Scholarship, Third Prize, and Outstanding Student Award.</span>
+              <span class="zh" lang="zh-CN">获优秀学生奖学金三等奖、优秀学生荣誉。</span>
+            </div>
+          </li>
         </ul>
       </div>
     </section>
 
     <section id="contact">
-      <h2>
-        <span class="en">Contact</span>
-        <span class="zh" lang="zh-CN">联系方式</span>
-      </h2>
+      <div class="section-inner">
+        <div class="en">
+          <p class="kicker">Contact</p>
+          <h2>Get in Touch</h2>
+        </div>
+        <div class="zh" lang="zh-CN">
+          <p class="kicker">联系方式</p>
+          <h2>联系我</h2>
+        </div>
 
-      <div class="en">
-        <ul class="contact-list">
-          <li><span class="contact-label">Personal email</span><a href="mailto:suri2006@proton.me">suri2006@proton.me</a></li>
-          <li><span class="contact-label">School email</span><a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></li>
-          <li><span class="contact-label">GitHub</span><a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">github.com/Yimo-WangYao</a></li>
-        </ul>
-        <p class="contact-note">Prospective PhD applicant, Fall 2028</p>
-      </div>
+        <div class="contact-grid">
+          <ul class="contact-list">
+            <li><span class="contact-label"><span class="en">Personal email</span><span class="zh" lang="zh-CN">个人邮箱</span></span><a href="mailto:suri2006@proton.me">suri2006@proton.me</a></li>
+            <li><span class="contact-label"><span class="en">School email</span><span class="zh" lang="zh-CN">学校邮箱</span></span><a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></li>
+            <li><span class="contact-label">GitHub</span><a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">github.com/Yimo-WangYao</a></li>
+            <li><span class="contact-label">CV</span><a href="cv.html"><span class="en">Open current CV</span><span class="zh" lang="zh-CN">查看当前简历</span></a></li>
+            <li><span class="contact-label"><span class="en">Research Summary</span><span class="zh" lang="zh-CN">研究摘要</span></span><a href="research/cba.html"><span class="en">CBA player-influence project</span><span class="zh" lang="zh-CN">CBA 球员影响力项目</span></a></li>
+          </ul>
 
-      <div class="zh" lang="zh-CN">
-        <ul class="contact-list">
-          <li><span class="contact-label">个人邮箱</span><a href="mailto:suri2006@proton.me">suri2006@proton.me</a></li>
-          <li><span class="contact-label">学校邮箱</span><a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></li>
-          <li><span class="contact-label">GitHub</span><a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">github.com/Yimo-WangYao</a></li>
-        </ul>
-        <p class="contact-note">拟申请 2028 年秋季博士项目</p>
+          <div class="objective-box">
+            <div class="en">
+              <strong>Prospective MS Applicant in Statistics / Data Science, Fall 2028</strong>
+              <p>Interested in sports analytics, social statistics, player-influence modeling, and reliable uncertainty quantification.</p>
+            </div>
+            <div class="zh" lang="zh-CN">
+              <strong>拟申请 2028 年秋季统计 / 数据科学硕士项目</strong>
+              <p>研究兴趣包括体育数据分析、社会统计、球员影响力建模与不确定性量化。</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -1051,6 +1411,8 @@
     (function () {
       const root = document.documentElement;
       const languageButton = document.getElementById("langToggle");
+      const menuButton = document.getElementById("menuToggle");
+      const siteHeader = document.getElementById("siteHeader");
       const navLinks = Array.from(document.querySelectorAll("nav a"));
       const sections = navLinks
         .map((link) => document.querySelector(link.getAttribute("href")))
@@ -1065,14 +1427,23 @@
           "aria-label",
           isChinese ? "Switch to English" : "Switch to Chinese"
         );
+        menuButton.setAttribute(
+          "aria-label",
+          isChinese ? "打开导航菜单" : "Open navigation menu"
+        );
 
         if (persist) {
           try {
             localStorage.setItem("preferred-language", root.dataset.lang);
           } catch (error) {
-            // The page still works when browser storage is unavailable.
+            // The page remains functional when browser storage is unavailable.
           }
         }
+      }
+
+      function closeMenu() {
+        siteHeader.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
       }
 
       function setActiveSection(activeLink) {
@@ -1088,7 +1459,7 @@
       }
 
       function updateActiveSection() {
-        const marker = window.scrollY + 140;
+        const marker = window.scrollY + 130;
         let activeLink = navLinks[0];
 
         sections.forEach((section, index) => {
@@ -1113,8 +1484,28 @@
         setLanguage(root.dataset.lang === "zh" ? "en" : "zh", true);
       });
 
+      menuButton.addEventListener("click", () => {
+        const isOpen = siteHeader.classList.toggle("menu-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
       navLinks.forEach((link) => {
-        link.addEventListener("click", () => setActiveSection(link));
+        link.addEventListener("click", () => {
+          setActiveSection(link);
+          closeMenu();
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!siteHeader.contains(event.target)) {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 920) {
+          closeMenu();
+        }
       });
 
       let scrollFrame = null;

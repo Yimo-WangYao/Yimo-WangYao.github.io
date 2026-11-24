@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CBA Player Influence Model | Research Summary</title>
+  <meta name="description" content="Research summary for a reproducible CBA player-influence model using possession-level regularized regression, hierarchical models, and uncertainty calibration.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --ink: #183637;
+      --muted: #5d6e6d;
+      --teal: #0b5457;
+      --accent: #b5683f;
+      --line: #d6dfdb;
+      --paper: #f2efe8;
+      --surface: #fffdf9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--teal);
+      text-underline-offset: 3px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px max(18px, calc((100vw - 960px) / 2));
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .toolbar a,
+    .toolbar button {
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .toolbar button {
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 5px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .paper {
+      width: min(960px, calc(100% - 32px));
+      margin: 24px auto 40px;
+      background: var(--surface);
+      box-shadow: 0 16px 45px rgba(24, 54, 55, 0.1);
+    }
+
+    .page {
+      min-height: 1080px;
+      padding: 58px 64px;
+    }
+
+    .page + .page {
+      border-top: 1px solid var(--line);
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--teal);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.18;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2.6rem;
+    }
+
+    h2 {
+      margin: 30px 0 12px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #2bb7b3;
+      font-size: 1.45rem;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .subtitle {
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .byline {
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .abstract {
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f7faf7;
+    }
+
+    .meta-grid,
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .meta-box {
+      padding-left: 14px;
+      border-left: 3px solid #d9ece9;
+    }
+
+    .meta-box strong {
+      display: block;
+      color: var(--teal);
+    }
+
+    .finding {
+      margin: 12px 0;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fbfcf9;
+    }
+
+    .finding strong {
+      color: var(--teal);
+    }
+
+    figure {
+      margin: 18px 0 22px;
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    figcaption {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .callout {
+      margin: 16px 0;
+      padding: 14px 16px;
+      border-left: 4px solid #2bb7b3;
+      background: #eef7f4;
+    }
+
+    ul {
+      margin: 8px 0 15px;
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 5px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .references {
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        min-height: 0;
+        padding: 34px 22px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .meta-grid,
+      .finding-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        padding: 9px 12px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: Letter;
+        margin: 0.55in;
+      }
+
+      body {
+        background: #fff;
+        font-size: 10.5pt;
+      }
+
+      .toolbar {
+        display: none;
+      }
+
+      .paper {
+        width: auto;
+        margin: 0;
+        box-shadow: none;
+      }
+
+      .page {
+        min-height: 0;
+        padding: 0;
+      }
+
+      .page + .page {
+        break-before: page;
+        border-top: 0;
+      }
+
+      figure,
+      .finding,
+      .callout {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="../index.html">Back to homepage</a>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <main class="paper">
+    <article class="page">
+      <h1>Estimating CBA Player Influence from Lineup and Possession Data</h1>
+      <p class="subtitle">Reproducible modeling under weak signal and high lineup collinearity</p>
+      <p class="byline">Yimo Wang-Yao · Southern University of Science and Technology · November 2026</p>
+
+      <div class="abstract">
+        <strong>Summary.</strong>
+        This research develops a reproducible pipeline for estimating adjusted CBA player
+        influence from lineup and possession data. The central question is not only which
+        players rank highly, but how much confidence a ranking can support when player
+        exposure is sparse, lineups are highly collinear, and possession outcomes are noisy.
+      </div>
+
+      <h2>Research Question</h2>
+      <p>
+        How reliably can individual player influence be estimated from observed CBA
+        possessions, and how should uncertainty be represented when lineup effects and
+        signal strength are weak?
+      </p>
+
+      <h2>Data</h2>
+      <div class="meta-grid">
+        <div class="meta-box">
+          <strong>2025-26 CBA season</strong>
+          420 regular-season games and 33 playoff games.
+        </div>
+        <div class="meta-box">
+          <strong>Data integration</strong>
+          Official CBA records for game, player, substitution, and box-score identity;
+          K8 event data for play-by-play, coordinates, and video availability.
+        </div>
+        <div class="meta-box">
+          <strong>Analysis unit</strong>
+          One offensive possession, linked to reconstructed five-player offense and defense lineups.
+        </div>
+        <div class="meta-box">
+          <strong>Reporting sample</strong>
+          287 players meeting the 200-possession reporting floor and training exposure.
+        </div>
+      </div>
+
+      <h2>Methods</h2>
+      <ul>
+        <li>Built crosswalks across official CBA and K8 schedules, identities, lineups, and event order.</li>
+        <li>Reconstructed five-player lineup intervals and segmented possessions using made field goals, free throws, turnovers, rebounds, and period boundaries.</li>
+        <li>Estimated possession-level ridge regularized adjusted plus-minus with separate offense and defense effects.</li>
+        <li>Extended the model with hierarchical empirical-Bayes partial pooling and a Gaussian variance-component Laplace approximation.</li>
+        <li>Evaluated lineup interactions, simulation recovery, game-block bootstrap stability, and nominal-to-empirical interval calibration.</li>
+      </ul>
+    </article>
+
+    <article class="page">
+      <h2>Key Findings</h2>
+
+      <div class="finding">
+        <strong>1. Rankings are unstable under weak lineup signal.</strong>
+        Across 200 game-level bootstrap resamples, the mean Spearman correlation with the
+        full-fit ranking was 0.786 for offense and 0.762 for defense. Median rank-interval
+        widths were 186 and 194 positions, respectively. Only a small leading group had
+        stable top-50 membership.
+      </div>
+
+      <figure>
+        <img src="fig-stability.svg" alt="Bar chart showing CBA ranking stability under game-level bootstrap resampling">
+        <figcaption>
+          Figure 1. Game-bootstrap stability of player rankings. Broad ordering is preserved,
+          but individual ranks remain highly uncertain outside a small leading group.
+        </figcaption>
+      </figure>
+
+      <div class="finding">
+        <strong>2. Nominal confidence intervals require explicit calibration.</strong>
+        First-ridge intervals understated uncertainty at every simulated signal strength,
+        with nominal 95% calibration factors of 1.171, 1.899, and 2.999 at signal standard
+        deviations 1, 3, and 6. Hierarchical empirical-Bayes intervals were conservative at
+        weak and medium signal. Leave-one-replicate-out calibration restored approximately
+        0.95 coverage, but stronger signal required substantially wider intervals.
+      </div>
+
+      <figure>
+        <img src="fig-calibration.svg" alt="Grouped bar chart comparing interval calibration factors for ridge and hierarchical models">
+        <figcaption>
+          Figure 2. Calibration factors for nominal 95% intervals. A value above 1 widens the
+          original interval; a value below 1 narrows it.
+        </figcaption>
+      </figure>
+
+      <div class="finding">
+        <strong>3. Partial pooling is useful but not a substitute for identification.</strong>
+        Hierarchical empirical Bayes improved several regular-season validation metrics,
+        but did not improve every playoff holdout metric. Its coefficients were highly
+        correlated with the first ridge fit, which indicates that shrinkage stabilizes
+        estimates but does not resolve lineup selection or hidden interactions.
+      </div>
+
+      <h2>Limitations</h2>
+      <p>
+        The coefficients are adjusted on-court associations, not causal effects. Lineup
+        interactions, unobserved player roles, and private event-level data limit what the
+        current ranking can support. The variance-component approximation is not an exact
+        Bayesian posterior, and interval calibration depends on transfer assumptions from
+        the controlled simulation.
+      </p>
+
+      <h2>Reproducibility and Data Availability</h2>
+      <p>
+        The public summary reports aggregate diagnostics and excludes event-level data and
+        private code. Source identities, snapshot policies, and provenance rules are tracked
+        separately. Access to the private repository can be requested from the author.
+      </p>
+
+      <div class="callout">
+        <strong>Takeaway.</strong>
+        The project shows why a single CBA player ranking should be treated cautiously:
+        regularization and partial pooling improve stability, but uncertainty calibration
+        and explicit reporting floors are essential when lineup signal is weak.
+      </div>
+
+      <h2>Selected References</h2>
+      <ol class="references">
+        <li>Sill, J. (2010). Improved NBA Adjusted +/- Using Regularization and Out-of-Sample Testing. MIT Sloan Sports Analytics Conference.</li>
+        <li>Ghimire, S., Ehrlich, J. A., and Sanders, S. D. (2020). Measuring individual worker output in a complementary team setting. PLOS ONE, 15(8), e0237920.</li>
+      </ol>
+
+      <p class="small">
+        Contact: <a href="mailto:suri2006@proton.me">suri2006@proton.me</a> ·
+        Homepage: <a href="../index.html">yimo-wangyao.github.io</a>
+      </p>
+    </article>
+  </main>
+</body>
+</html>

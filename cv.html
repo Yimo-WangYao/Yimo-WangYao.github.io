@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yimo Wang-Yao | CV</title>
+  <meta name="description" content="Academic CV of Yimo Wang-Yao, a statistics undergraduate at Southern University of Science and Technology.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --ink: #183637;
+      --muted: #5d6e6d;
+      --teal: #0b5457;
+      --accent: #b5683f;
+      --line: #d6dfdb;
+      --paper: #f2efe8;
+      --surface: #fffdf9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--teal);
+      text-underline-offset: 3px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px max(18px, calc((100vw - 940px) / 2));
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .toolbar a,
+    .toolbar button {
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .toolbar button {
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 5px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .cv {
+      width: min(900px, calc(100% - 32px));
+      margin: 24px auto 40px;
+      padding: 50px 58px 58px;
+      background: var(--surface);
+      box-shadow: 0 16px 45px rgba(24, 54, 55, 0.1);
+    }
+
+    header {
+      padding-bottom: 20px;
+      border-bottom: 3px solid var(--teal);
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--teal);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.2;
+    }
+
+    h1 {
+      margin: 0 0 5px;
+      font-size: 2.2rem;
+    }
+
+    h2 {
+      margin: 26px 0 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      margin: 15px 0 3px;
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0 0 8px;
+    }
+
+    ul {
+      margin: 5px 0 12px;
+      padding-left: 19px;
+    }
+
+    li + li {
+      margin-top: 4px;
+    }
+
+    .headline {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      margin-top: 9px;
+      font-size: 0.88rem;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: baseline;
+    }
+
+    .entry-head strong {
+      color: var(--teal);
+    }
+
+    .date {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 28px;
+    }
+
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 0;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .score-row span {
+      color: var(--muted);
+    }
+
+    .score-row strong {
+      color: var(--teal);
+    }
+
+    .compact-list li {
+      margin-top: 3px;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .cv {
+        width: calc(100% - 20px);
+        padding: 30px 22px 40px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .entry-head,
+      .score-row {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        padding: 9px 12px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: Letter;
+        margin: 0.55in;
+      }
+
+      body {
+        background: #fff;
+        font-size: 10pt;
+      }
+
+      .toolbar,
+      footer {
+        display: none;
+      }
+
+      .cv {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      h2 {
+        break-after: avoid;
+      }
+
+      section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="index.html">Back to homepage</a>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <main class="cv">
+    <header>
+      <h1>Yimo Wang-Yao</h1>
+      <p class="headline">Statistics undergraduate at SUSTech · Prospective MS applicant in Statistics / Data Science, Fall 2028</p>
+      <div class="contact-line">
+        <a href="mailto:suri2006@proton.me">suri2006@proton.me</a>
+        <a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a>
+        <a href="https://github.com/Yimo-WangYao">github.com/Yimo-WangYao</a>
+        <a href="https://yimo-wangyao.github.io/">yimo-wangyao.github.io</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry-head">
+        <strong>Southern University of Science and Technology</strong>
+        <span class="date">Expected 2028</span>
+      </div>
+      <p>B.S. in Statistics · Overall GPA: 3.36/4.0 · 2024-25: 3.24/4.0 · 2025-26: 3.48/4.0</p>
+      <p><strong>Relevant coursework:</strong> Mathematical Analysis, Advanced Algebra, Probability Theory, Mathematical Statistics, Regression Analysis, Time Series Analysis, Stochastic Processes, R Programming, Ordinary Differential Equations.</p>
+    </section>
+
+    <section>
+      <h2>Research Experience</h2>
+      <div class="entry-head">
+        <strong>CBA Player Influence Model</strong>
+        <span class="date">Ongoing</span>
+      </div>
+      <p><strong>Independent research project</strong></p>
+      <ul>
+        <li>Built a reproducible possession-level pipeline using official CBA records and K8 play-by-play data across 420 regular-season and 33 playoff games from the 2025-26 season.</li>
+        <li>Reconstructed five-player lineups, audited substitution and clock anomalies, and generated a standardized event and possession dataset.</li>
+        <li>Estimated ridge RAPM, hierarchical empirical-Bayes RAPM, exact-lineup interactions, and variance-component Laplace approximations.</li>
+        <li>Evaluated ranking stability, playoff prediction, simulation recovery, and interval calibration. Game-bootstrap mean Spearman correlation was 0.786 for offense and 0.762 for defense.</li>
+        <li>Found that first-ridge nominal 95% intervals understate uncertainty, with calibration factors up to 2.999 at strong simulated signal.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Selected Projects and Writing</h2>
+      <div class="entry-head">
+        <strong>CBA Analysis and Basketball Content Creation on Hupu</strong>
+        <span class="date">Ongoing</span>
+      </div>
+      <ul>
+        <li>Write CBA-related analysis and commentary for Hupu, translating statistical and tactical questions into accessible basketball discussion.</li>
+        <li>Connect empirical player-influence research with public-facing sports analysis and data communication.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="two-col">
+        <div>
+          <strong>Programming and data</strong>
+          <p>Python, R, pandas, NumPy, SciPy, scikit-learn, Git, LaTeX</p>
+        </div>
+        <div>
+          <strong>Statistics and communication</strong>
+          <p>Regression modeling, hierarchical models, uncertainty quantification, statistical simulation, data visualization, bilingual technical writing</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Test Scores</h2>
+      <div class="score-row"><span>English proficiency</span><strong>To be updated</strong></div>
+      <div class="score-row"><span>GRE</span><strong>To be updated</strong></div>
+    </section>
+
+    <section>
+      <h2>Selected Awards and Honors</h2>
+      <ul class="compact-list">
+        <li><strong>China Undergraduate Mathematical Contest in Modeling (CUMCM)</strong>, Guangdong Provincial Second Prize, Oct 2026</li>
+        <li><strong>Mathematical Contest in Modeling (MCM/ICM)</strong>, Honorable Mention, Feb 2026</li>
+        <li><strong>Guangdong Province University Student Light Volleyball Championship</strong>, First Prize (Seventh Place), Jun 2026</li>
+        <li><strong>Outstanding Student Scholarship, Third Prize</strong>, SUSTech, 2024-25 and 2025-26</li>
+        <li><strong>Outstanding Student</strong>, SUSTech, 2025-26</li>
+        <li><strong>Outstanding Student Leader</strong>, SUSTech, 2024-25</li>
+        <li><strong>Guangdong Province College Student Writing Competition</strong>, Second Prize, May 2025</li>
+        <li><strong>Shenzhen University Student Volleyball Competition</strong>, Second Place, Dec 2025</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Selected Activities</h2>
+      <ul class="compact-list">
+        <li><strong>2026 APEC Economic Leaders' Meeting</strong>, Registration Center Volunteer, Nov 2026</li>
+        <li><strong>15th National Games of China</strong>, Volunteer, 2025</li>
+        <li><strong>SUSTech Huizhou Summer Teaching Program</strong>, Team Leader, 2025</li>
+        <li><strong>SUSTech Women's Volleyball Team</strong>, Captain since Sep 2026; Player since Sep 2024</li>
+        <li><strong>Kaiyuan Xiangsheng Club</strong>, President since Sep 2026; Vice President, 2024-2026</li>
+      </ul>
+    </section>
+
+    <footer>Last updated November 2026</footer>
+  </main>
+</body>
+</html>
