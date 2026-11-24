@@ -5,6 +5,7 @@ Bilingual academic homepage for Yimo (Suri) Wang-Yao, a statistics undergraduate
 ## Files
 
 - `index.html`: Main page, including all English and Chinese content.
+- `favicon.svg`: Browser tab icon.
 - `suri.jpeg`: Profile photo used in the homepage.
 - `IMG_3460.jpeg`, `IMG_3470.jpeg`: Additional image assets retained in the repository.
 
@@ -39,6 +40,7 @@ Recommended details for a new achievement:
 ## 文件
 
 - `index.html`：主页面，包含全部中英文内容。
+- `favicon.svg`：浏览器标签页图标。
 - `suri.jpeg`：主页头像。
 - `IMG_3460.jpeg`、`IMG_3470.jpeg`：仓库中保留的其他图片素材。
 
