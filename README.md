@@ -1,6 +1,6 @@
 # Yimo Wang-Yao's Personal Website
 
-Bilingual academic homepage for Yimo (Suri) Wang-Yao, a statistics undergraduate at the Southern University of Science and Technology.
+Bilingual academic homepage for Yimo Wang-Yao, a statistics undergraduate at the Southern University of Science and Technology.
 
 ## Files
 
@@ -35,7 +35,7 @@ Recommended details for a new achievement:
 
 # 王姚以沫的个人主页
 
-南方科技大学统计学本科生王姚以沫（Suri Wang-Yao）的双语学术主页。
+南方科技大学统计学本科生王姚以沫的双语学术主页。
 
 ## 文件
 
