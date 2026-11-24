@@ -1,531 +1,1015 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en" data-lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yimo Wang-Yao — Research Homepage</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yimo (Suri) Wang-Yao | Statistics Student at SUSTech</title>
+  <meta name="description" content="Academic homepage of Yimo (Suri) Wang-Yao, an undergraduate statistics student at Southern University of Science and Technology. Research interests, projects, awards, and activities.">
+  <meta name="author" content="Yimo Wang-Yao">
+  <link rel="canonical" href="https://yimo-wangyao.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Yimo (Suri) Wang-Yao">
+  <meta property="og:description" content="Statistics undergraduate at Southern University of Science and Technology, Class of 2028.">
+  <meta property="og:url" content="https://yimo-wangyao.github.io/">
+  <meta property="og:image" content="https://yimo-wangyao.github.io/suri.jpeg">
+  <meta name="twitter:card" content="summary">
+
   <style>
-    /* Reset & base */
+    :root {
+      --ink: #183637;
+      --muted: #5d6e6d;
+      --teal: #003f43;
+      --teal-soft: #d9ece9;
+      --teal-bright: #2bb7b3;
+      --accent: #b5683f;
+      --paper: #f3f0e9;
+      --surface: #fffdf9;
+      --surface-alt: #f7faf7;
+      --line: #d8dfdb;
+      --shadow: 0 16px 45px rgba(24, 54, 55, 0.09);
+    }
+
     * {
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
     }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
+    }
+
     a {
-      color: rgb(0, 63, 67); /* 主色作为默认链接颜色 */
+      color: var(--teal);
+      text-decoration-color: rgba(0, 63, 67, 0.35);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-decoration-color: currentColor;
+    }
+
+    :focus-visible {
+      outline: 3px solid #d79b58;
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 2000;
+      padding: 8px 12px;
+      background: var(--surface);
+      color: var(--teal);
+      border-radius: 6px;
+      transform: translateY(-150%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px max(18px, calc((100vw - 1120px) / 2));
+      background: var(--teal);
+      box-shadow: 0 6px 20px rgba(0, 35, 38, 0.18);
+    }
+
+    .wordmark {
+      flex: 0 0 auto;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 6px;
+      color: #fff;
+      font-family: Georgia, "Songti SC", serif;
+      font-size: 0.92rem;
+      font-weight: 700;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .wordmark:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      text-decoration: none;
     }
 
-    /* Navigation */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgb(0, 63, 67); /* 主色导航栏 */
       display: flex;
+      flex: 1;
       justify-content: center;
-      gap: 20px;
-      padding: 12px 0;
-      z-index: 1000;
+      gap: 2px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
+
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
     nav a {
-      color: white;
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      border-radius: 5px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.9rem;
       font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s;
-    }
-    nav a:hover, nav a.active {
-      background-color: rgb(43, 183, 179); /* 辅助色用于悬停和激活状态 */
-      color: #fff; /* 确保文字在辅助色上清晰可见 */
+      line-height: 1.3;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
-    /* Container */
-    .container {
-      max-width: 900px;
-      margin: 100px auto 60px;
-      background: white;
-      padding: 30px 30px 50px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    nav a:hover,
+    nav a.active {
+      background: var(--teal-bright);
+      color: #fff;
+      text-decoration: none;
     }
 
-    /* Language toggle */
     #langToggle {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      background-color: rgb(0, 63, 67); /* 主色按钮 */
-      border: none;
-      color: white;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-weight: 600;
+      flex: 0 0 auto;
+      min-width: 56px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 6px;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
       cursor: pointer;
-      z-index: 1100;
-      transition: background-color 0.3s;
-    }
-    #langToggle:hover {
-      background-color: rgb(43, 183, 179); /* 辅助色用于按钮悬停 */
+      transition: background-color 0.2s ease;
     }
 
-    /* Header & Hero */
+    #langToggle:hover {
+      background: var(--teal-bright);
+    }
+
+    .container {
+      width: min(980px, calc(100% - 36px));
+      margin: 94px auto 36px;
+      padding: 38px 48px 54px;
+      border: 1px solid rgba(24, 54, 55, 0.08);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      padding-top: 38px;
+    }
+
+    .container > section:first-child {
+      padding-top: 0;
+    }
+
+    .container > section + section {
+      margin-top: 38px;
+      border-top: 1px solid var(--line);
+    }
+
     .hero {
-      display: flex;
-      gap: 25px;
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 38px;
       align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
     }
-    .hero .photo {
-      flex: 0 0 160px;
-      height: 220px;
-      border-radius: 16px;
+
+    .photo {
       overflow: hidden;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+      aspect-ratio: 4 / 5;
+      border-radius: 8px;
+      background: var(--teal-soft);
+      box-shadow: 0 8px 22px rgba(24, 54, 55, 0.16);
     }
-    .hero .photo img {
+
+    .photo img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .hero .intro {
-      flex: 1;
-      min-width: 250px;
-    }
-    .hero .intro h1 {
-      margin-top: 0;
-      color: rgb(0, 63, 67); /* 主色标题 */
-      margin-bottom: 10px; /* 减小标题下方间距 */
-    }
-    .hero .intro p {
-      font-size: 1.15rem;
-      margin-top: 0; /* 移除段落上方默认间距 */
-      margin-bottom: 8px; /* 减小段落下方间距 */
-    }
 
-    /* Section titles */
-    h2 {
-      color: rgb(0, 63, 67); /* 主色用于二级标题 */
-      border-bottom: 2px solid rgb(43, 183, 179); /* 辅助色用于标题下划线 */
-      padding-bottom: 6px;
-      margin-top: 0;
-    }
+    h1,
+    h2,
     h3 {
-      color: rgb(0, 63, 67); /* 主色用于三级标题 */
-    }
-    hr {
-      border: none;
-      height: 1px;
-      background: rgba(43, 183, 179, 0.3); /* 淡化的辅助色用于分隔线 */
-      margin: 30px 0;
+      color: var(--teal);
+      font-family: Georgia, "Songti SC", "STSong", serif;
+      line-height: 1.24;
     }
 
-    /* Sections */
-    section {
-      margin-bottom: 40px;
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
     }
 
-    /* Lists */
+    h2 {
+      margin: 0 0 22px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--teal-bright);
+      font-size: clamp(1.45rem, 3vw, 1.8rem);
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
     ul {
+      margin-top: 0;
       padding-left: 20px;
     }
 
-    /* Research cards */
-    .cards {
+    li + li {
+      margin-top: 8px;
+    }
+
+    .role {
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+      font-weight: 600;
+    }
+
+    .focus {
+      max-width: 650px;
+      color: var(--muted);
+    }
+
+    .hero-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 10px 18px;
+      margin-top: 18px;
+      font-size: 0.93rem;
+      font-weight: 600;
     }
-    .card {
-      background: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-      padding: 18px;
-      flex: 1 1 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: box-shadow 0.3s ease;
-      border-top: 3px solid rgb(43, 183, 179); /* 辅助色用于卡片顶部装饰 */
+
+    .news-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0 0 0 22px;
+      border-left: 2px solid var(--teal-soft);
+      list-style: none;
     }
-    .card:hover {
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+
+    .news-list li {
+      position: relative;
+      margin: 0;
+      padding: 0 0 22px;
     }
-    .card h3 {
-      margin-top: 0;
-      color: rgb(0, 63, 67); /* 主色卡片标题 */
-      margin-bottom: 8px;
+
+    .news-list li:last-child {
+      padding-bottom: 0;
     }
-    .card p {
-      flex-grow: 1;
-      margin-bottom: 12px;
+
+    .news-list li::before {
+      position: absolute;
+      top: 0.52em;
+      left: -29px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--surface);
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      content: "";
+    }
+
+    .news-date {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .news-item strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .education-item {
+      list-style: none;
+    }
+
+    .education-item h3 {
+      font-size: 1.28rem;
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .fact {
+      padding-left: 14px;
+      border-left: 3px solid var(--teal-soft);
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
       font-size: 0.95rem;
     }
-    .card .links a {
-      margin-right: 12px;
-      font-weight: 600;
+
+    .coursework {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--accent);
+      border-radius: 8px;
+      background: var(--surface-alt);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 24px rgba(24, 54, 55, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .card p {
+      color: #405554;
+      font-size: 0.94rem;
+    }
+
+    .card .links {
+      margin-top: auto;
+      padding-top: 6px;
       font-size: 0.9rem;
-      color: rgb(0, 63, 67); /* 主色卡片链接 */
-    }
-    .card .links a:hover {
-      color: rgb(43, 183, 179); /* 辅助色用于卡片链接悬停 */
+      font-weight: 700;
     }
 
-    /* Contact */
-    .contact ul {
+    .award-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
       list-style: none;
-      padding-left: 0;
-    }
-    .contact ul li {
-      margin-bottom: 12px;
-      font-size: 1rem;
     }
 
-    /* Responsive */
-    @media (max-width: 700px) {
-      nav {
-        gap: 12px;
-        padding: 10px 5px;
+    .award-item {
+      display: grid;
+      grid-template-columns: 115px minmax(0, 1fr);
+      gap: 18px;
+      margin: 0;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .award-item:first-child {
+      padding-top: 0;
+    }
+
+    .award-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .award-date {
+      color: var(--accent);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .award-item strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .activity-group + .activity-group {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .activity-group h3 {
+      margin-bottom: 12px;
+    }
+
+    .activity-group li strong {
+      color: var(--ink);
+    }
+
+    .contact-list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .contact-list li {
+      margin: 0;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-label {
+      display: inline-block;
+      min-width: 150px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .contact-note {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--teal-bright);
+      background: var(--teal-soft);
+      font-style: italic;
+    }
+
+    .site-footer {
+      width: min(980px, calc(100% - 36px));
+      margin: 0 auto 36px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 4px 0;
+    }
+
+    html[data-lang="en"] .zh,
+    html[data-lang="zh"] .en {
+      display: none !important;
+    }
+
+    @media (max-width: 860px) {
+      .site-header {
+        gap: 8px;
+        padding: 9px 12px;
       }
+
+      .wordmark {
+        display: none;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .container {
+        width: min(100% - 24px, 760px);
+        margin-top: 82px;
+        padding: 30px 28px 42px;
+      }
+
       .hero {
-        flex-direction: column;
-        align-items: center;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      nav a {
+        padding: 7px 8px;
+        font-size: 0.82rem;
+      }
+
+      #langToggle {
+        min-width: 52px;
+        padding: 7px 9px;
+      }
+
+      .container {
+        width: calc(100% - 20px);
+        margin-top: 78px;
+        padding: 26px 20px 38px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
         text-align: center;
       }
-      .hero .photo {
-        width: 60vw;
-        height: auto;
+
+      .photo {
+        width: min(190px, 62vw);
+        justify-self: center;
       }
-      .hero .intro {
-        min-width: auto;
+
+      .hero-links {
+        justify-content: center;
       }
+
+      .fact-grid,
       .cards {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+      }
+
+      .award-item {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .contact-label {
+        display: block;
+        min-width: 0;
       }
     }
 
-    /* Hide/show for language */
-    .zh { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">
+    <span class="en">Skip to content</span>
+    <span class="zh" lang="zh-CN">跳到正文</span>
+  </a>
 
-  <!-- 导航栏 -->
-  <nav>
-    <a href="#home" class="nav-link active" data-en="Home" data-zh="首页">Home</a>
-    <a href="#education" class="nav-link" data-en="Education" data-zh="教育经历">Education</a>
-    <a href="#research" class="nav-link" data-en="Research" data-zh="研究方向">Research</a>
-    <a href="#projects" class="nav-link" data-en="Projects" data-zh="项目经历">Projects</a>
-    <a href="#awards" class="nav-link" data-en="Awards" data-zh="获奖荣誉">Awards</a>
-    <a href="#activities" class="nav-link" data-en="Activities" data-zh="课外活动">Activities</a>
-    <a href="#contact" class="nav-link" data-en="Contact" data-zh="联系方式">Contact</a>
-  </nav>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Yimo Wang-Yao homepage">YW</a>
+    <nav aria-label="Primary">
+      <a class="nav-link active" href="#home"><span class="en">Home</span><span class="zh" lang="zh-CN">首页</span></a>
+      <a class="nav-link" href="#news"><span class="en">News</span><span class="zh" lang="zh-CN">近期动态</span></a>
+      <a class="nav-link" href="#education"><span class="en">Education</span><span class="zh" lang="zh-CN">教育经历</span></a>
+      <a class="nav-link" href="#research"><span class="en">Research</span><span class="zh" lang="zh-CN">研究兴趣</span></a>
+      <a class="nav-link" href="#projects"><span class="en">Projects</span><span class="zh" lang="zh-CN">项目经历</span></a>
+      <a class="nav-link" href="#awards"><span class="en">Awards</span><span class="zh" lang="zh-CN">奖项荣誉</span></a>
+      <a class="nav-link" href="#activities"><span class="en">Activities</span><span class="zh" lang="zh-CN">课外活动</span></a>
+      <a class="nav-link" href="#contact"><span class="en">Contact</span><span class="zh" lang="zh-CN">联系方式</span></a>
+    </nav>
+    <button id="langToggle" type="button" aria-label="Switch to Chinese">中文</button>
+  </header>
 
-  <!-- 语言切换按钮 -->
-  <button id="langToggle" aria-label="Toggle Language">中文</button>
-
-  <div class="container">
-
-    <!-- Home / Landing Hero -->
+  <main id="main" class="container">
     <section id="home">
       <div class="hero">
-
-        <!-- Photo -->
         <div class="photo">
-          <img src="suri.jpeg" alt="Yimo Wang-Yao photo" />
+          <img src="suri.jpeg" alt="Portrait of Yimo (Suri) Wang-Yao" width="790" height="1090" fetchpriority="high">
         </div>
 
-        <!-- Intro -->
         <div class="intro">
-
-          <!-- English -->
           <div class="en">
             <h1>Yimo Wang-Yao / Suri Wang-Yao</h1>
-            <p>Undergraduate Student of Statistics • Southern University of Science and Technology, Class of 2028</p>
-            <p>Personal Email: <a href="mailto:suri2006@proton.me">suri2006@proton.me</a></p>
-            <p>School Email: <a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></p>
-            <p><a href="https://yimo-wangyao.github.io/" target="_blank">Personal Homepage</a></p>
+            <p class="role">Undergraduate Student of Statistics<br>Southern University of Science and Technology, Class of 2028</p>
+            <p class="focus">Exploring data science, applied inference, and reliable evaluation of artificial intelligence systems.</p>
+            <div class="hero-links">
+              <a href="mailto:suri2006@proton.me">Email</a>
+              <a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="#news">Latest updates</a>
+            </div>
           </div>
 
-          <!-- Chinese -->
-          <div class="zh">
+          <div class="zh" lang="zh-CN">
             <h1>王姚以沫</h1>
-            <p>统计学 • 南方科技大学 2024级本科生</p>
-            <p>个人邮箱：<a href="mailto:suri2006@proton.me">suri2006@proton.me</a></p>
-            <p>学校邮箱：<a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></p>
-            <p><a href="https://yimo-wangyao.github.io/" target="_blank">个人主页</a></p>
+            <p class="role">统计学本科生<br>南方科技大学，2024级</p>
+            <p class="focus">关注数据科学、应用统计推断，以及人工智能系统的可靠评估。</p>
+            <div class="hero-links">
+              <a href="mailto:suri2006@proton.me">邮箱</a>
+              <a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="#news">近期动态</a>
+            </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <hr>
+    <section id="news">
+      <h2>
+        <span class="en">Recent Updates</span>
+        <span class="zh" lang="zh-CN">近期动态</span>
+      </h2>
 
-    <!-- Education -->
+      <div class="en">
+        <ul class="news-list">
+          <li class="news-item">
+            <time class="news-date" datetime="2026-09">Sep 2026</time>
+            <strong>New student leadership roles</strong>
+            Began serving as President of the Kaiyuan Xiangsheng Club and Captain of the SUSTech Women's Volleyball Team.
+          </li>
+          <li class="news-item">
+            <time class="news-date" datetime="2025-06">Jun 2025</time>
+            <strong>Huizhou summer teaching program</strong>
+            Served as team leader for the SUSTech summer teaching program in Huizhou from June to August.
+          </li>
+          <li class="news-item">
+            <time class="news-date" datetime="2025">2025</time>
+            <strong>Awards and honors</strong>
+            Recognized with an Outstanding Student Scholarship, the Outstanding Student Leader Award, and an MCM/ICM Honorable Mention.
+          </li>
+        </ul>
+      </div>
+
+      <div class="zh" lang="zh-CN">
+        <ul class="news-list">
+          <li class="news-item">
+            <time class="news-date" datetime="2026-09">2026年9月</time>
+            <strong>担任新的学生工作职务</strong>
+            开始担任开元堂相声社社长、南方科技大学女排校队队长。
+          </li>
+          <li class="news-item">
+            <time class="news-date" datetime="2025-06">2025年6月</time>
+            <strong>惠州暑期支教项目</strong>
+            2025年6月至8月，担任南方科技大学惠州暑期支教项目队长。
+          </li>
+          <li class="news-item">
+            <time class="news-date" datetime="2025">2025年</time>
+            <strong>奖项与荣誉</strong>
+            获优秀学生奖学金、优秀学生干部，以及 MCM/ICM Honorable Mention（S奖）。
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section id="education">
       <h2>
         <span class="en">Education</span>
-        <span class="zh">教育经历</span>
+        <span class="zh" lang="zh-CN">教育经历</span>
       </h2>
 
-      <div class="en">
-        <ul>
-          <li><strong>Southern University of Science and Technology</strong><br>
-            B.S. in Statistics, Class of 2028<br>
-            Main Courses: Calculus, Linear Algebra, Probability Theory, Mathematical Statistics<br>
-            GPA: 3.36/4.0(24-25:3.24/4.0; 25-26:3.48/4.0)<br>
-            Honor: [Scholarship/Honor]<br>
-            &nbsp;&nbsp;• <a href="#" target="_blank">2024-2025, Third Prize, Outstanding Student Scholarship</a><br>
-            &nbsp;&nbsp;• <a href="#" target="_blank">2024-2025, Outstanding Student Leader Award</a>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li class="education-item">
+          <h3>
+            <span class="en">Southern University of Science and Technology</span>
+            <span class="zh" lang="zh-CN">南方科技大学</span>
+          </h3>
 
-      <div class="zh">
-        <ul>
-          <li><strong>南方科技大学</strong><br>
-            统计学，2024级本科生<br>
-            主要课程：高等数学、线性代数、概率论、数理统计<br>
-            GPA：3.36/4.0(24-25:3.24/4.0; 25-26:3.48/4.0)<br>
-            荣誉：[奖学金/荣誉称号]<br>
-            &nbsp;&nbsp;• <a href="#" target="_blank">2024-2025, 优秀学生奖学金 三等奖</a><br>
-            &nbsp;&nbsp;• <a href="#" target="_blank">2024-2025, 优秀学生干部</a>
-          </li>
-        </ul>
-      </div>
+          <div class="en">
+            <p>B.S. in Statistics, Class of 2028</p>
+            <div class="fact-grid">
+              <div class="fact"><span>Overall GPA</span><strong>3.36 / 4.0</strong></div>
+              <div class="fact"><span>2024–25 GPA</span><strong>3.24 / 4.0</strong></div>
+              <div class="fact"><span>2025–26 GPA</span><strong>3.48 / 4.0</strong></div>
+            </div>
+            <p class="coursework"><strong>Core coursework:</strong> Calculus, Linear Algebra, Probability Theory, Mathematical Statistics</p>
+          </div>
+
+          <div class="zh" lang="zh-CN">
+            <p>统计学理学学士，2024级</p>
+            <div class="fact-grid">
+              <div class="fact"><span>总 GPA</span><strong>3.36 / 4.0</strong></div>
+              <div class="fact"><span>2024–25 学年 GPA</span><strong>3.24 / 4.0</strong></div>
+              <div class="fact"><span>2025–26 学年 GPA</span><strong>3.48 / 4.0</strong></div>
+            </div>
+            <p class="coursework"><strong>主要课程：</strong>高等数学、线性代数、概率论、数理统计</p>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <hr>
-
-    <!-- Research Interests -->
     <section id="research">
       <h2>
         <span class="en">Research Interests</span>
-        <span class="zh">研究兴趣</span>
+        <span class="zh" lang="zh-CN">研究兴趣</span>
       </h2>
 
       <div class="en">
         <ul>
-          <li><strong>Statistics:</strong> Data science, applied inference</li>
-          <li><strong>Artificial Intelligence:</strong> Model evaluation, ethics</li>
+          <li><strong>Statistics:</strong> Data science and applied inference</li>
+          <li><strong>Artificial Intelligence:</strong> Model evaluation, fairness, robustness, and ethics</li>
         </ul>
       </div>
-      <div class="zh">
+      <div class="zh" lang="zh-CN">
         <ul>
-          <li><strong>统计学：</strong>数据科学，应用推断</li>
-          <li><strong>人工智能：</strong>模型评估，伦理学</li>
+          <li><strong>统计学：</strong>数据科学与应用统计推断</li>
+          <li><strong>人工智能：</strong>模型评估、公平性、鲁棒性与伦理</li>
         </ul>
       </div>
     </section>
 
-    <hr>
-
-    <!-- Projects & Experience -->
     <section id="projects">
       <h2>
-        <span class="en">Projects & Experience</span>
-        <span class="zh">科研项目与经历</span>
+        <span class="en">Projects &amp; Experience</span>
+        <span class="zh" lang="zh-CN">科研项目与经历</span>
       </h2>
 
       <div class="cards">
-
-        <div class="card">
-          <h3>Deep Learning Model Evaluation</h3>
-          <p>Focused on developing reliable metrics for AI model fairness and robustness.</p>
-          <p><strong>Role:</strong> Algorithm design and experimental validation</p>
-          <p><strong>Duration:</strong> Jan 2025 – Present</p>
-          <div class="links">
-            <a href="https://github.com/yaoyimo-wang/dl-model-eval" target="_blank">GitHub</a>
-            <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank">Paper</a>
+        <article class="card">
+          <h3>
+            <span class="en">Deep Learning Model Evaluation</span>
+            <span class="zh" lang="zh-CN">深度学习模型评估</span>
+          </h3>
+          <div class="en">
+            <p>Developing reliable metrics for evaluating the fairness and robustness of AI models.</p>
+            <p><strong>Role:</strong> Algorithm design and experimental validation</p>
+            <p><strong>Duration:</strong> Jan 2025 – Present</p>
           </div>
-        </div>
-
-        <div class="card">
-          <h3>Statistical Inference in Healthcare</h3>
-          <p>Applied statistical methods to clinical trial data for better decision-making.</p>
-          <p><strong>Role:</strong> Data analysis and report writing</p>
-          <p><strong>Duration:</strong> Sep 2024 – Dec 2024</p>
-          <div class="links">
-            <a href="#" target="_blank">Report</a>
+          <div class="zh" lang="zh-CN">
+            <p>关注人工智能模型公平性与鲁棒性的可靠评估指标。</p>
+            <p><strong>职责：</strong>算法设计与实验验证</p>
+            <p><strong>时间：</strong>2025年1月至今</p>
           </div>
-        </div>
+          <div class="links">
+            <a href="mailto:suri2006@proton.me?subject=Deep%20Learning%20Model%20Evaluation">
+              <span class="en">Request details</span>
+              <span class="zh" lang="zh-CN">邮件咨询</span>
+            </a>
+          </div>
+        </article>
 
+        <article class="card">
+          <h3>
+            <span class="en">Statistical Inference in Healthcare</span>
+            <span class="zh" lang="zh-CN">医疗场景中的统计推断</span>
+          </h3>
+          <div class="en">
+            <p>Applied statistical methods to clinical trial data to support evidence-based decisions.</p>
+            <p><strong>Role:</strong> Data analysis and report writing</p>
+            <p><strong>Duration:</strong> Sep 2024 – Dec 2024</p>
+          </div>
+          <div class="zh" lang="zh-CN">
+            <p>将统计方法应用于临床试验数据，为循证决策提供支持。</p>
+            <p><strong>职责：</strong>数据分析与报告撰写</p>
+            <p><strong>时间：</strong>2024年9月至12月</p>
+          </div>
+          <div class="links">
+            <a href="mailto:suri2006@proton.me?subject=Statistical%20Inference%20in%20Healthcare">
+              <span class="en">Request report</span>
+              <span class="zh" lang="zh-CN">邮件索取报告</span>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <hr>
-
-    <!-- Awards -->
     <section id="awards">
       <h2>
-        <span class="en">🏅 Awards & Honors</span>
-        <span class="zh">🏅 奖项与荣誉</span>
+        <span class="en">Awards &amp; Honors</span>
+        <span class="zh" lang="zh-CN">奖项与荣誉</span>
       </h2>
-      <div class="en">
-        <ul>
-          <li><strong>Mathematical Contest in Modeling (MCM/ICM), Honorable Mention</strong> – COMAP, Feb 2025</li>
-          <li><strong>Second Prize, Guangdong Province College Student Writing Competition</strong> – Mar 2025</li>
+
+      <ul class="award-list">
+        <li class="award-item">
+          <span class="award-date">2024–25</span>
+          <div>
+            <strong class="en">Third Prize, Outstanding Student Scholarship</strong>
+            <strong class="zh" lang="zh-CN">优秀学生奖学金 三等奖</strong>
+            <span class="en">Southern University of Science and Technology</span>
+            <span class="zh" lang="zh-CN">南方科技大学</span>
+          </div>
+        </li>
+        <li class="award-item">
+          <span class="award-date">2024–25</span>
+          <div>
+            <strong class="en">Outstanding Student Leader Award</strong>
+            <strong class="zh" lang="zh-CN">优秀学生干部</strong>
+            <span class="en">Southern University of Science and Technology</span>
+            <span class="zh" lang="zh-CN">南方科技大学</span>
+          </div>
+        </li>
+        <li class="award-item">
+          <span class="award-date">Feb 2025</span>
+          <div>
+            <strong class="en">Mathematical Contest in Modeling (MCM/ICM), Honorable Mention</strong>
+            <strong class="zh" lang="zh-CN">数学建模竞赛（MCM/ICM）S奖</strong>
+            <span>COMAP</span>
+          </div>
+        </li>
+        <li class="award-item">
+          <span class="award-date">2025</span>
+          <div>
+            <strong class="en">Second Prize, Guangdong Province College Student Writing Competition</strong>
+            <strong class="zh" lang="zh-CN">广东省大学生写作大赛 二等奖</strong>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="activities">
+      <h2>
+        <span class="en">Extracurricular Activities</span>
+        <span class="zh" lang="zh-CN">课外活动</span>
+      </h2>
+
+      <div class="activity-group">
+        <h3>
+          <span class="en">Clubs &amp; Student Work</span>
+          <span class="zh" lang="zh-CN">社团与学生工作</span>
+        </h3>
+        <ul class="en">
+          <li><strong>Kaiyuan Xiangsheng Club</strong> — Vice President, Sep 2024 – 2026; President, Sep 2026 – Present</li>
+          <li><strong>Shude Shaosheng Recitation Club</strong> — President, Sep 2026 – Present</li>
+          <li><strong>Calligraphy and Painting Club</strong> — Vice President, Sep 2025 – Jun 2026</li>
+          <li><strong>Student Union of Shude College</strong> — Member, Sep 2024 – Jun 2025</li>
+        </ul>
+        <ul class="zh" lang="zh-CN">
+          <li><strong>开元堂相声社</strong> — 副社长，2024年9月至2026年；社长，2026年9月至今</li>
+          <li><strong>树德韶声朗诵社</strong> — 社长，2026年9月至今</li>
+          <li><strong>致仁书画社</strong> — 副社长，2025年9月至2026年6月</li>
+          <li><strong>树德书院学生会</strong> — 干事，2024年9月至2025年6月</li>
         </ul>
       </div>
-      <div class="zh">
-        <ul>
-          <li><strong>数学建模竞赛（MCM/ICM），S奖</strong> – COMAP，2025年2月</li>
-          <li><strong>广东省大学生写作大赛 二等奖</strong> – 2025年5月</li>
+
+      <div class="activity-group">
+        <h3>
+          <span class="en">Sports</span>
+          <span class="zh" lang="zh-CN">体育活动</span>
+        </h3>
+        <ul class="en">
+          <li><strong>SUSTech Women's Volleyball Team</strong> — Player, Sep 2024 – Present; Captain, Sep 2026 – Present</li>
+          <li><strong>Volleyball Team of Shude College</strong> — Player, Sep 2024 – Present; Captain, Sep 2025 – Jun 2026</li>
+          <li><strong>Table Tennis Team of Shude College</strong> — Player, Sep 2024 – Present</li>
+          <li><strong>SUSTech Table Tennis Club</strong> — President, Sep 2025 – Jun 2026</li>
+        </ul>
+        <ul class="zh" lang="zh-CN">
+          <li><strong>南方科技大学女排校队</strong> — 队员，2024年9月至今；队长，2026年9月至今</li>
+          <li><strong>树德书院排球队</strong> — 队员，2024年9月至今；队长，2025年9月至2026年6月</li>
+          <li><strong>树德书院乒乓球队</strong> — 队员，2024年9月至今</li>
+          <li><strong>南方科技大学乒乓球社</strong> — 社长，2025年9月至2026年6月</li>
+        </ul>
+      </div>
+
+      <div class="activity-group">
+        <h3>
+          <span class="en">Community Work</span>
+          <span class="zh" lang="zh-CN">社会实践</span>
+        </h3>
+        <ul class="en">
+          <li><strong>SUSTech Huizhou Summer Teaching Program</strong> — Team Leader, Jun 2025 – Aug 2025</li>
+          <li><strong>15th National Games of China</strong> — Volunteer, Jun 2025 – Dec 2025</li>
+          <li><strong>12th National Games for Persons with Disabilities &amp; 9th National Special Olympic Games of China</strong> — Volunteer, Jun 2025 – Dec 2025</li>
+        </ul>
+        <ul class="zh" lang="zh-CN">
+          <li><strong>南方科技大学惠州暑期支教项目</strong> — 队长，2025年6月至8月</li>
+          <li><strong>第十五届全国运动会</strong> — 志愿者，2025年6月至12月</li>
+          <li><strong>第十二届全国残疾人运动会暨第九届全国特殊奥林匹克运动会</strong> — 志愿者，2025年6月至12月</li>
         </ul>
       </div>
     </section>
 
-    <hr>
- <!-- Extracurricular Activities: Clubs, Sports & Social work -->
-   
-   
-    <section id="activities">
-    <h2><span class="en">🎯 Extracurricular Activities</span><span class="zh">🎯 课外活动</span></h2>
-
-    <h3 id="clubs"><span class="en">📚 Clubs</span><span class="zh">📚 社团</span></h3>
-    <ul class="en">
-       <li><strong>Calligraphy and Painting Club</strong> (Vice President, Sep 2025 – Jun 2026)</li>
-       <li><strong>Kaoyuan Xiangsheng Club</strong> (Vice President, Sep 2024 – Present)</li>
-      <li><strong>Kaoyuan Xiangsheng Club</strong> (President, Sep 2026 – Present)</li>
-       <li><strong>Student Union of Shude College</strong> (Member, Sep 2024 – Jun 2025)</li>
-    </ul>
-    <ul class="zh">
-      <li><strong>致仁书画社</strong> 副社长，2025年9月 – 2026年6月</li>
-      <li><strong>开元堂相声社</strong> 副社长，2024年9月 – 至今</li>
-      <li><strong>树德韶声朗诵社</strong> 社长，2026年9月 – 至今</li>
-      <li><strong>树德书院学生会</strong> 干事，2024年9月–2025年6月</li>
-    </ul>
-
-    <h3 id="sports"><span class="en">🏐 Sports</span><span class="zh">🏐 体育活动</span></h3>
-    <ul class="en">
-      <li><strong>SUSTech Women's Volleyball Team</strong> (Player, Sep 2024 – Present; Captain, Sep 2026 - Present)</li>
-      <li><strong>Volleyball Team of Shude College</strong> (Player, Sep 2024 – Present; Captain, Sep 2025 – Jun 2026)</li>
-      <li><strong>Table Tennis Team of Shude College</strong> (Player, Sep 2024 – Present)</li>
-      <li><strong>SUSTech Table Tennis Club</strong>(President, Sep 2025 – Jun 2026)</li>
-    </ul>
-    <ul class="zh">
-      <li><strong>南科大女排校队</strong> 队员，2024年9月 – 至今；队长，2026年9月 - 至今</li>
-      <li><strong>树德书院排球队</strong> 队员，2024年9月 – 至今；队长，2025年9月 – 2026年6月</li>
-      <li><strong>树德书院乒乓球队</strong> 队员，2024年9月 – 至今</li>
-      <li><strong>南科大乒乓球社</strong> 社长，2025年9月 – 2026年6月</li>
-    </ul>
-
-    <h3 id="community"><span class="en">🌏 Community Work</span><span class="zh">🌏 社会实践</span></h3>
-    <ul class="en">
-     <li><strong>Summer Teaching Program in Huizhou</strong> (Team Leader, Jun 2025 – Present)</li>
-     <li><strong>Volunteer for the 15th National Games of China</strong> (Volunteer, Jun 2025 – Dec 2025)</li>
-     <li><strong>Volunteer and the 12th National Games for Persons with Disabilities & 9th National Special Olympic Games of China</strong> (Volunteer, Jun 2025 – Dec 2025)</li>
-    </ul>
-    <ul class="zh">
-      <li><strong>南方科技大学惠州暑期支教项目</strong> 队长，2025年6月 – 2025年8月</li>
-      <li><strong>第十五届全国运动会</strong> 志愿者，2025年6月 – 2025年12月</li>
-      <li><strong>第十二届全国残疾人运动会 & 第九届全国特殊奥林匹克运动会</strong> 志愿者，2025年6月 – 2025年12月</li>
-    </ul>
-  </section>
-     <hr>
-    <!-- Contact -->
-    <section id="contact" class="contact">
+    <section id="contact">
       <h2>
         <span class="en">Contact</span>
-        <span class="zh">联系方式</span>
+        <span class="zh" lang="zh-CN">联系方式</span>
       </h2>
+
       <div class="en">
-        <ul>
-           <li>Personal Email: <a href="mailto:suri2006@proton.me">suri2006@proton.me</a></li>
-            <li>School Email: <a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></li>
-          <li>Homepage: <a href="https://yimo-wangyao.github.io/" target="_blank">https://yimo-wangyao.github.io/</a></li>
-          <li>GitHub: <a href="https://github.com/yimo-wangyao" target="_blank">https://github.com/yimo-wangyao</a></li>
+        <ul class="contact-list">
+          <li><span class="contact-label">Personal email</span><a href="mailto:suri2006@proton.me">suri2006@proton.me</a></li>
+          <li><span class="contact-label">School email</span><a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></li>
+          <li><span class="contact-label">GitHub</span><a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">github.com/Yimo-WangYao</a></li>
         </ul>
-        <p><em>Prospective PhD applicant, Fall 2025</em></p>
+        <p class="contact-note">Prospective PhD applicant, Fall 2028</p>
       </div>
-      <div class="zh">
-        <ul>
-          <li>个人邮箱：<a href="mailto:suri2006@proton.me">suri2006@proton.me</a></li>
-          <li>学校邮箱：<a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></li>
-          <li>主页：<a href="https://yimo-wangyao.github.io/" target="_blank">https://yimo-wangyao.github.io/</a></li>
-          <li>GitHub：<a href="https://github.com/yimo-wangyao" target="_blank">https://github.com/yimo-wangyao</a></li>
+
+      <div class="zh" lang="zh-CN">
+        <ul class="contact-list">
+          <li><span class="contact-label">个人邮箱</span><a href="mailto:suri2006@proton.me">suri2006@proton.me</a></li>
+          <li><span class="contact-label">学校邮箱</span><a href="mailto:wangyym2024@mail.sustech.edu.cn">wangyym2024@mail.sustech.edu.cn</a></li>
+          <li><span class="contact-label">GitHub</span><a href="https://github.com/Yimo-WangYao" target="_blank" rel="noopener noreferrer">github.com/Yimo-WangYao</a></li>
         </ul>
-        <p><em>拟申请2028年秋季博士项目</em></p>
+        <p class="contact-note">拟申请 2028 年秋季博士项目</p>
       </div>
     </section>
-  </div>
+  </main>
 
-<script>
-  // 语言切换功能
-  const langToggleBtn = document.getElementById('langToggle');
-  const enEls = document.querySelectorAll('.en');
-  const zhEls = document.querySelectorAll('.zh');
-  const navLinks = document.querySelectorAll('nav a');
+  <footer class="site-footer">
+    <p>
+      <span class="en">Last updated November 2026. Hosted on GitHub Pages.</span>
+      <span class="zh" lang="zh-CN">最后更新于 2026 年 11 月，托管于 GitHub Pages。</span>
+    </p>
+    <p><a href="https://github.com/Yimo-WangYao/Yimo-WangYao.github.io" target="_blank" rel="noopener noreferrer">Website source</a></p>
+  </footer>
 
-  function showLanguage(lang) {
-    if (lang === 'zh') {
-      // 显示中文内容
-      zhEls.forEach(el => el.style.display = 'block');
-      enEls.forEach(el => el.style.display = 'none');
-      langToggleBtn.textContent = 'EN'; // 改为EN而非English
-      // 更新导航栏为中文
-      navLinks.forEach(link => {
-        link.textContent = link.getAttribute('data-zh');
-      });
-    } else {
-      // 显示英文内容
-      zhEls.forEach(el => el.style.display = 'none');
-      enEls.forEach(el => el.style.display = 'block');
-      langToggleBtn.textContent = '中文';
-      // 更新导航栏为英文
-      navLinks.forEach(link => {
-        link.textContent = link.getAttribute('data-en');
-      });
-    }
-  }
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const languageButton = document.getElementById("langToggle");
+      const navLinks = Array.from(document.querySelectorAll("nav a"));
+      const sections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
 
-  // 语言切换事件
-  langToggleBtn.addEventListener('click', () => {
-    if (zhEls[0].style.display === 'block') {
-      showLanguage('en');
-    } else {
-      showLanguage('zh');
-    }
-  });
+      function setLanguage(language, persist) {
+        const isChinese = language === "zh";
+        root.dataset.lang = isChinese ? "zh" : "en";
+        root.lang = isChinese ? "zh-CN" : "en";
+        languageButton.textContent = isChinese ? "EN" : "中文";
+        languageButton.setAttribute(
+          "aria-label",
+          isChinese ? "Switch to English" : "Switch to Chinese"
+        );
 
-  // 默认显示英文
-  showLanguage('en');
-
-  // 平滑滚动和导航激活状态功能
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      document.getElementById(targetId).scrollIntoView({behavior: 'smooth'});
-
-      navLinks.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-
-  window.addEventListener('scroll', () => {
-    let fromTop = window.scrollY + 100;
-    navLinks.forEach(link => {
-      const section = document.querySelector(link.hash);
-      if (
-        section.offsetTop <= fromTop &&
-        section.offsetTop + section.offsetHeight > fromTop
-      ) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
+        if (persist) {
+          try {
+            localStorage.setItem("preferred-language", root.dataset.lang);
+          } catch (error) {
+            // The page still works when browser storage is unavailable.
+          }
+        }
       }
-    });
-  });
-</script>
 
+      function setActiveSection(activeLink) {
+        navLinks.forEach((link) => {
+          const isActive = link === activeLink;
+          link.classList.toggle("active", isActive);
+          if (isActive) {
+            link.setAttribute("aria-current", "location");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      }
+
+      function updateActiveSection() {
+        const marker = window.scrollY + 140;
+        let activeLink = navLinks[0];
+
+        sections.forEach((section, index) => {
+          if (section.offsetTop <= marker) {
+            activeLink = navLinks[index];
+          }
+        });
+
+        setActiveSection(activeLink);
+      }
+
+      let savedLanguage = "en";
+      try {
+        savedLanguage = localStorage.getItem("preferred-language") || "en";
+      } catch (error) {
+        savedLanguage = "en";
+      }
+
+      setLanguage(savedLanguage === "zh" ? "zh" : "en", false);
+
+      languageButton.addEventListener("click", () => {
+        setLanguage(root.dataset.lang === "zh" ? "en" : "zh", true);
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => setActiveSection(link));
+      });
+
+      let scrollFrame = null;
+      window.addEventListener("scroll", () => {
+        if (scrollFrame !== null) {
+          return;
+        }
+
+        scrollFrame = window.requestAnimationFrame(() => {
+          updateActiveSection();
+          scrollFrame = null;
+        });
+      }, { passive: true });
+
+      window.addEventListener("hashchange", updateActiveSection);
+      updateActiveSection();
+    }());
+  </script>
 </body>
 </html>
